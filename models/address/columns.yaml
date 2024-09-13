@@ -1,0 +1,55 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: acorn.lojistiks::lang.models.general.id
+        type: number
+        searchable: false
+        sortable: true
+    number:
+        label: acorn.lojistiks::lang.models.address.number
+        type: number
+    name:
+        label: acorn.lojistiks::lang.models.address.street
+        type: text 
+        searchable: true
+    area:
+        label: acorn.lojistiks::lang.models.area.label
+        relation: area
+        type: number
+        select: id
+        searchable: true
+        sortable: true
+    gps:
+        label: acorn.lojistiks::lang.models.gps.label
+        relation: gps
+        type: number
+        select: id
+        searchable: true
+        sortable: true
+    server:
+        label: acorn.lojistiks::lang.models.server.label
+        relation: server
+        type: number
+        select: id
+        searchable: true
+        sortable: true
+    version:
+        label: acorn.lojistiks::lang.models.version.label
+        type: number
+        searchable: false
+    is_current_version:
+        label: acorn.lojistiks::lang.models.address.is_current_version
+        type: switch
+    created_at:
+        label: acorn.lojistiks::lang.models.general.created_at
+        type: datetime
+        searchable: true
+        sortable: true
+        invisible: true
+    _qrcode:
+        type: partial
+        path: ~/modules/acorn/partials/_qrcode
+        sortable: false

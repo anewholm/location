@@ -1,0 +1,17 @@
+plugin:
+    name: 'acorn.location::lang.plugin.name'
+    description: 'acorn.location::lang.plugin.description'
+    author: 'Acorn'
+    icon: wn-icon-adjust
+    replaces: {  }
+permissions:
+    acorn_location:
+        tab: acorn_location
+        label: acorn_location
+navigation:
+    location-main-menu-item:
+        label: Locations
+        url: acorn/location/locations
+        icon: icon-anchor
+        permissions:
+            - acorn_location

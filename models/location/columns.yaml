@@ -1,0 +1,34 @@
+columns:
+    id:
+        label: id
+        type: number
+    name:
+        label: name
+        type: text
+    address:
+        label: address
+        type: text
+    city:
+        label: city
+        type: text
+    zip:
+        label: zip
+        type: text
+    country_code:
+        label: country_code
+        type: text
+    state_code:
+        label: state_code
+        type: text
+    latitude:
+        label: latitude
+        type: text
+    longitude:
+        label: longitude
+        type: text
+    vicinity:
+        label: vicinity
+        type: text
+    parent:
+        label: Parent
+        type: text

@@ -1,0 +1,89 @@
+fields:
+    # ---------------------- Stuff
+    address:
+        label: acorn.location::lang.models.location.google_address
+        type: addressfinder
+        span: full
+        #placeholder: acorn.location::lang.models.general.select
+        #countryRestriction: 'us,ch'
+        fieldMap:
+            vicinity: vicinity
+            city: city
+            zip: zip
+            country: country_code
+            state: state_code
+            latitude: latitude
+            longitude: longitude
+
+    # ---------------------- Locality
+    vicinity:
+        label: acorn.location::lang.models.location.vicinity
+        span: storm
+        cssClass: col-xs-10
+        readOnly: true
+    _create_vicinty:
+        label: acorn.location::lang.models.location.add_area
+        type: partial
+        path: popup_button
+        controller: Acorn\Location\Controllers\Areas
+        span: storm
+        cssClass: col-xs-2
+    city:
+        label: acorn.location::lang.models.location.city
+        span: storm
+        cssClass: col-xs-10
+        readOnly: true
+    _create_city:
+        label: acorn.location::lang.models.location.add_area
+        type: partial
+        path: popup_button
+        controller: Acorn\Location\Controllers\Areas
+        span: storm
+        cssClass: col-xs-2
+
+    # ---------------------- State
+    country_code:
+        label: acorn.location::lang.models.location.country
+        span: storm
+        cssClass: col-xs-10
+        readOnly: true
+    _create_country:
+        label: acorn.location::lang.models.location.add_area
+        type: partial
+        path: popup_button
+        controller: Acorn\Location\Controllers\Areas
+        span: storm
+        cssClass: col-xs-2
+    state_code:
+        label: acorn.location::lang.models.location.state
+        span: storm
+        cssClass: col-xs-10
+        readOnly: true
+    _create_state:
+        label: acorn.location::lang.models.location.add_area
+        type: partial
+        path: popup_button
+        controller: Acorn\Location\Controllers\Areas
+        span: storm
+        cssClass: col-xs-2
+
+    # ---------------------- GPS
+    latitude:
+        label: acorn.location::lang.models.location.latitude
+        type: number
+        span: storm
+        cssClass: col-xs-5
+        readOnly: true
+    longitude:
+        label: acorn.location::lang.models.location.longitude
+        type: number
+        span: storm
+        cssClass: col-xs-5
+        readOnly: true
+    _add_gps:
+        label: acorn.location::lang.models.location.add_gps
+        type: partial
+        path: add_button
+        span: storm
+        cssClass: col-xs-2
+
