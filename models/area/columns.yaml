@@ -4,30 +4,30 @@
 
 columns:
     id:
-        label: acorn.lojistiks::lang.models.general.id
+        label: acorn.location::lang.models.general.id
         type: number
         searchable: false
         sortable: true
         invisible: true
     name:
-        label: acorn.lojistiks::lang.models.general.name
+        label: acorn.location::lang.models.general.name
         type: text
         searchable: true
     area_type:
-        label: acorn.lojistiks::lang.models.areatype.label
+        label: acorn.location::lang.models.areatype.label
         relation: area_type
         type: number
         select: name
     parent_area:
-        label: acorn.lojistiks::lang.models.area.parent
+        label: acorn.location::lang.models.area.parent
         relation: parent
         type: text
         select: name
     gps[name]:
-        label: acorn.lojistiks::lang.models.gps.label
+        label: acorn.location::lang.models.gps.label
         type: text
     server:
-        label: acorn.lojistiks::lang.models.area.server
+        label: acorn.location::lang.models.area.server
         relation: server
         type: number
         select: name
@@ -35,7 +35,7 @@ columns:
         sortable: true
         invisible: true
     created_at:
-        label: acorn.lojistiks::lang.models.general.created_at
+        label: acorn.location::lang.models.general.created_at
         type: datetime
         searchable: true
         sortable: true

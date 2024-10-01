@@ -1,4 +1,4 @@
-<?php namespace Acorn\<Plugin>\Updates;
+<?php namespace Acorn\Location\Updates;
 
 use Acorn\Migration;
 

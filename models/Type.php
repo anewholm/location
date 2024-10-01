@@ -5,17 +5,14 @@ namespace Acorn\Location\Models;
 use Acorn\Model;
 use Acorn\Models\Server;
 
-/**
- * AreaType Model
- */
-class AreaType extends Model
+class Type extends Model
 {
     use \Winter\Storm\Database\Traits\Validation;
 
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'acorn_location_area_types';
+    public $table = 'acorn_location_types';
 
     /**
      * @var array Guarded fields
@@ -63,12 +60,12 @@ class AreaType extends Model
      */
     public $hasOne = [];
     public $hasMany = [
-        'areas' => [Area::class, 'key' => 'area_type_id'],
-
+         'children' => [Type::class, 'key' => 'parent_type_id'],
     ];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
     public $belongsTo = [
+         'parent' => [Type::class, 'key' => 'parent_type_id'],
          'server' => Server::class,
     ];
     public $belongsToMany = [];

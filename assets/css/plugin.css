@@ -1,13 +1,14 @@
 /* ------------------------- Location create form */
 #location-lookup,
 #location-create {
-  width:49%;
   padding:1em;
 }
 #location-lookup {
+  width:39%;
   float:left;
   border-right:3px solid #d7d7d7;
 }
 #location-create {
+  width:59%;
   float:right;
 }

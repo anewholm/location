@@ -4,29 +4,29 @@
 
 fields:
     logitude:
-       label: acorn.lojistiks::lang.models.address.logitude
+       label: acorn.location::lang.models.address.logitude
        type: text
        span: auto
        searchable: false
     latitude: 
-       label: acorn.lojistiks::lang.models.address.latitude
+       label: acorn.location::lang.models.address.latitude
        type: text
        span: auto
        searchable: false
     server:
-        label: acorn.lojistiks::lang.models.general.server
+        label: acorn.location::lang.models.general.server
         type: relation
         select: id
         span: auto
         searchable: true
         sortable: true
     version:
-        label: acorn.lojistiks::lang.models.general.version
+        label: acorn.location::lang.models.general.version
         type: number
         span: auto
         searchable: false
     is_current_version:
-        label: acorn.lojistiks::lang.models.general.is_current_version
+        label: acorn.location::lang.models.general.is_current_version
         type: switch
         span: auto
     _qrcode:

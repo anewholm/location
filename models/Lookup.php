@@ -3,24 +3,23 @@
 namespace Acorn\Location\Models;
 
 use Acorn\Model;
-use Acorn\Models\Server;
 
 /**
- * AreaType Model
+ * Lookup Model
  */
-class AreaType extends Model
+class Lookup extends Model
 {
     use \Winter\Storm\Database\Traits\Validation;
 
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'acorn_location_area_types';
+    public $table = 'acorn_location_lookups';
 
     /**
      * @var array Guarded fields
      */
-    protected $guarded = [];
+    protected $guarded = ['*'];
 
     /**
      * @var array Fillable fields
@@ -55,31 +54,23 @@ class AreaType extends Model
     /**
      * @var array Attributes to be cast to Argon (Carbon) instances
      */
-    public $timestamps = FALSE;
-    protected $dates = [];
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
 
     /**
      * @var array Relations
      */
     public $hasOne = [];
-    public $hasMany = [
-        'areas' => [Area::class, 'key' => 'area_type_id'],
-
-    ];
+    public $hasMany = [];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
-    public $belongsTo = [
-         'server' => Server::class,
-    ];
+    public $belongsTo = [];
     public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];
     public $morphMany = [];
     public $attachOne = [];
     public $attachMany = [];
-
-    public static function menuitemCount()
-    {
-        return self::all()->count();
-    }
 }

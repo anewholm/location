@@ -16,24 +16,29 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+ALTER TABLE IF EXISTS ONLY public.acorn_location_locations DROP CONSTRAINT IF EXISTS user_group_id;
+ALTER TABLE IF EXISTS ONLY public.acorn_location_types DROP CONSTRAINT IF EXISTS types_created_by_user;
+ALTER TABLE IF EXISTS ONLY public.acorn_location_locations DROP CONSTRAINT IF EXISTS type_id;
+ALTER TABLE IF EXISTS ONLY public.acorn_location_types DROP CONSTRAINT IF EXISTS server_id;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_areas DROP CONSTRAINT IF EXISTS server_id;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_area_types DROP CONSTRAINT IF EXISTS server_id;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_addresses DROP CONSTRAINT IF EXISTS server_id;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_gps DROP CONSTRAINT IF EXISTS server_id;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_locations DROP CONSTRAINT IF EXISTS server_id;
+ALTER TABLE IF EXISTS ONLY public.acorn_location_types DROP CONSTRAINT IF EXISTS parent_type_id;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_areas DROP CONSTRAINT IF EXISTS parent_area_id;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_locations DROP CONSTRAINT IF EXISTS locations_created_by_user;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_addresses DROP CONSTRAINT IF EXISTS gps_id;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_areas DROP CONSTRAINT IF EXISTS gps_id;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_gps DROP CONSTRAINT IF EXISTS gps_created_by_user;
-ALTER TABLE IF EXISTS ONLY public.acorn_location_addresses DROP CONSTRAINT IF EXISTS created_at;
-ALTER TABLE IF EXISTS ONLY public.acorn_location_locations DROP CONSTRAINT IF EXISTS backend_user_group_id;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_areas DROP CONSTRAINT IF EXISTS areas_created_by_user;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_area_types DROP CONSTRAINT IF EXISTS area_types_created_by_user;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_areas DROP CONSTRAINT IF EXISTS area_type_id;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_addresses DROP CONSTRAINT IF EXISTS area_id;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_addresses DROP CONSTRAINT IF EXISTS addresses_created_by_user;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_locations DROP CONSTRAINT IF EXISTS address_id;
+DROP TRIGGER IF EXISTS tr_acorn_location_types_server_id ON public.acorn_location_types;
+DROP TRIGGER IF EXISTS tr_acorn_location_types_new_replicated_row ON public.acorn_location_types;
 DROP TRIGGER IF EXISTS tr_acorn_location_locations_server_id ON public.acorn_location_locations;
 DROP TRIGGER IF EXISTS tr_acorn_location_locations_new_replicated_row ON public.acorn_location_locations;
 DROP TRIGGER IF EXISTS tr_acorn_location_gps_server_id ON public.acorn_location_gps;
@@ -44,21 +49,23 @@ DROP TRIGGER IF EXISTS tr_acorn_location_area_types_server_id ON public.acorn_lo
 DROP TRIGGER IF EXISTS tr_acorn_location_area_types_new_replicated_row ON public.acorn_location_area_types;
 DROP TRIGGER IF EXISTS tr_acorn_location_addresses_server_id ON public.acorn_location_addresses;
 DROP TRIGGER IF EXISTS tr_acorn_location_addresses_new_replicated_row ON public.acorn_location_addresses;
+DROP INDEX IF EXISTS public.fki_type_id;
+DROP INDEX IF EXISTS public.dr_acorn_location_types_replica_identity;
 DROP INDEX IF EXISTS public.dr_acorn_location_location_replica_identity;
 DROP INDEX IF EXISTS public.dr_acorn_location_gps_replica_identity;
 DROP INDEX IF EXISTS public.dr_acorn_location_areas_replica_identity;
 DROP INDEX IF EXISTS public.dr_acorn_location_area_types_replica_identity;
 DROP INDEX IF EXISTS public.dr_acorn_location_addresses_replica_identity;
+ALTER TABLE IF EXISTS ONLY public.acorn_location_types DROP CONSTRAINT IF EXISTS location_types_pkey;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_locations DROP CONSTRAINT IF EXISTS location_locations_pkey;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_gps DROP CONSTRAINT IF EXISTS location_gps_pkey;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_areas DROP CONSTRAINT IF EXISTS location_areas_pkey;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_area_types DROP CONSTRAINT IF EXISTS location_area_types_pkey;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_addresses DROP CONSTRAINT IF EXISTS location_addresses_pkey;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_lookup DROP CONSTRAINT IF EXISTS acorn_location_location_pkey;
-ALTER TABLE IF EXISTS public.acorn_location_lookup ALTER COLUMN id DROP DEFAULT;
-DROP TABLE IF EXISTS public.acorn_location_locations;
-DROP SEQUENCE IF EXISTS public.acorn_location_location_id_seq;
+DROP TABLE IF EXISTS public.acorn_location_types;
 DROP TABLE IF EXISTS public.acorn_location_lookup;
+DROP TABLE IF EXISTS public.acorn_location_locations;
 DROP TABLE IF EXISTS public.acorn_location_gps;
 DROP TABLE IF EXISTS public.acorn_location_areas;
 DROP TABLE IF EXISTS public.acorn_location_area_types;
@@ -79,9 +86,10 @@ CREATE TABLE public.acorn_location_addresses (
     area_id uuid NOT NULL,
     gps_id uuid,
     server_id uuid NOT NULL,
-    created_by_user_id integer,
-    created_at integer,
-    response text
+    created_by_user_id uuid,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    response text,
+    lookup_id uuid
 );
 
 
@@ -94,7 +102,7 @@ CREATE TABLE public.acorn_location_area_types (
     name character varying(1024) NOT NULL,
     server_id uuid NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
-    created_by_user_id integer,
+    created_by_user_id uuid,
     response text
 );
 
@@ -113,7 +121,7 @@ CREATE TABLE public.acorn_location_areas (
     version integer DEFAULT 1 NOT NULL,
     is_current_version boolean DEFAULT true NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
-    created_by_user_id integer,
+    created_by_user_id uuid,
     response text
 );
 
@@ -128,46 +136,9 @@ CREATE TABLE public.acorn_location_gps (
     latitude double precision,
     server_id uuid NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
-    created_by_user_id integer,
+    created_by_user_id uuid,
     response text
 );
-
-
---
--- Name: acorn_location_lookup; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.acorn_location_lookup (
-    id integer NOT NULL,
-    address character varying(1024) NOT NULL,
-    city character varying(1024) NOT NULL,
-    zip character varying(1024) NOT NULL,
-    country_code character varying(1024) NOT NULL,
-    state_code character varying(1024) NOT NULL,
-    latitude character varying(1024) NOT NULL,
-    longitude character varying(1024) NOT NULL,
-    vicinity character varying(1024) NOT NULL
-);
-
-
---
--- Name: acorn_location_location_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.acorn_location_location_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: acorn_location_location_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.acorn_location_location_id_seq OWNED BY public.acorn_location_lookup.id;
 
 
 --
@@ -181,17 +152,44 @@ CREATE TABLE public.acorn_location_locations (
     image character varying(2048),
     server_id uuid NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
-    created_by_user_id integer,
+    created_by_user_id uuid,
     response text,
-    backend_user_group_id integer
+    user_group_id uuid,
+    type_id uuid
 );
 
 
 --
--- Name: acorn_location_lookup id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: acorn_location_lookup; Type: TABLE; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.acorn_location_lookup ALTER COLUMN id SET DEFAULT nextval('public.acorn_location_location_id_seq'::regclass);
+CREATE TABLE public.acorn_location_lookup (
+    id uuid NOT NULL,
+    address character varying(1024) NOT NULL,
+    city character varying(1024) NOT NULL,
+    zip character varying(1024) NOT NULL,
+    country_code character varying(1024) NOT NULL,
+    state_code character varying(1024) NOT NULL,
+    latitude character varying(1024) NOT NULL,
+    longitude character varying(1024) NOT NULL,
+    vicinity character varying(1024) NOT NULL,
+    created_at timestamp with time zone DEFAULT now() NOT NULL
+);
+
+
+--
+-- Name: acorn_location_types; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.acorn_location_types (
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    name character varying(1024) NOT NULL,
+    parent_type_id uuid,
+    server_id uuid NOT NULL,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    created_by_user_id uuid,
+    response text
+);
 
 
 --
@@ -243,6 +241,14 @@ ALTER TABLE ONLY public.acorn_location_locations
 
 
 --
+-- Name: acorn_location_types location_types_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.acorn_location_types
+    ADD CONSTRAINT location_types_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: dr_acorn_location_addresses_replica_identity; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -275,6 +281,20 @@ CREATE UNIQUE INDEX dr_acorn_location_gps_replica_identity ON public.acorn_locat
 --
 
 CREATE UNIQUE INDEX dr_acorn_location_location_replica_identity ON public.acorn_location_locations USING btree (server_id, id);
+
+
+--
+-- Name: dr_acorn_location_types_replica_identity; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX dr_acorn_location_types_replica_identity ON public.acorn_location_types USING btree (server_id, id);
+
+
+--
+-- Name: fki_type_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX fki_type_id ON public.acorn_location_locations USING btree (type_id);
 
 
 --
@@ -358,6 +378,22 @@ CREATE TRIGGER tr_acorn_location_locations_server_id BEFORE INSERT ON public.aco
 
 
 --
+-- Name: acorn_location_types tr_acorn_location_types_new_replicated_row; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER tr_acorn_location_types_new_replicated_row BEFORE INSERT ON public.acorn_location_types FOR EACH ROW EXECUTE FUNCTION public.fn_acorn_new_replicated_row();
+
+ALTER TABLE public.acorn_location_types ENABLE ALWAYS TRIGGER tr_acorn_location_types_new_replicated_row;
+
+
+--
+-- Name: acorn_location_types tr_acorn_location_types_server_id; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER tr_acorn_location_types_server_id BEFORE INSERT ON public.acorn_location_types FOR EACH ROW EXECUTE FUNCTION public.fn_acorn_server_id();
+
+
+--
 -- Name: acorn_location_locations address_id; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -370,7 +406,7 @@ ALTER TABLE ONLY public.acorn_location_locations
 --
 
 ALTER TABLE ONLY public.acorn_location_addresses
-    ADD CONSTRAINT addresses_created_by_user FOREIGN KEY (created_by_user_id) REFERENCES public.backend_users(id);
+    ADD CONSTRAINT addresses_created_by_user FOREIGN KEY (created_by_user_id) REFERENCES public.acorn_user_users(id);
 
 
 --
@@ -394,7 +430,7 @@ ALTER TABLE ONLY public.acorn_location_areas
 --
 
 ALTER TABLE ONLY public.acorn_location_area_types
-    ADD CONSTRAINT area_types_created_by_user FOREIGN KEY (created_by_user_id) REFERENCES public.backend_users(id);
+    ADD CONSTRAINT area_types_created_by_user FOREIGN KEY (created_by_user_id) REFERENCES public.acorn_user_users(id);
 
 
 --
@@ -402,23 +438,7 @@ ALTER TABLE ONLY public.acorn_location_area_types
 --
 
 ALTER TABLE ONLY public.acorn_location_areas
-    ADD CONSTRAINT areas_created_by_user FOREIGN KEY (created_by_user_id) REFERENCES public.backend_users(id);
-
-
---
--- Name: acorn_location_locations backend_user_group_id; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.acorn_location_locations
-    ADD CONSTRAINT backend_user_group_id FOREIGN KEY (backend_user_group_id) REFERENCES public.backend_user_groups(id);
-
-
---
--- Name: acorn_location_addresses created_at; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.acorn_location_addresses
-    ADD CONSTRAINT created_at FOREIGN KEY (created_at) REFERENCES public.acorn_calendar_event(id);
+    ADD CONSTRAINT areas_created_by_user FOREIGN KEY (created_by_user_id) REFERENCES public.acorn_user_users(id);
 
 
 --
@@ -426,7 +446,7 @@ ALTER TABLE ONLY public.acorn_location_addresses
 --
 
 ALTER TABLE ONLY public.acorn_location_gps
-    ADD CONSTRAINT gps_created_by_user FOREIGN KEY (created_by_user_id) REFERENCES public.backend_users(id);
+    ADD CONSTRAINT gps_created_by_user FOREIGN KEY (created_by_user_id) REFERENCES public.acorn_user_users(id);
 
 
 --
@@ -450,7 +470,7 @@ ALTER TABLE ONLY public.acorn_location_addresses
 --
 
 ALTER TABLE ONLY public.acorn_location_locations
-    ADD CONSTRAINT locations_created_by_user FOREIGN KEY (created_by_user_id) REFERENCES public.backend_users(id);
+    ADD CONSTRAINT locations_created_by_user FOREIGN KEY (created_by_user_id) REFERENCES public.acorn_user_users(id);
 
 
 --
@@ -459,6 +479,14 @@ ALTER TABLE ONLY public.acorn_location_locations
 
 ALTER TABLE ONLY public.acorn_location_areas
     ADD CONSTRAINT parent_area_id FOREIGN KEY (parent_area_id) REFERENCES public.acorn_location_areas(id) NOT VALID;
+
+
+--
+-- Name: acorn_location_types parent_type_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.acorn_location_types
+    ADD CONSTRAINT parent_type_id FOREIGN KEY (parent_type_id) REFERENCES public.acorn_location_types(id);
 
 
 --
@@ -499,6 +527,38 @@ ALTER TABLE ONLY public.acorn_location_area_types
 
 ALTER TABLE ONLY public.acorn_location_areas
     ADD CONSTRAINT server_id FOREIGN KEY (server_id) REFERENCES public.acorn_servers(id);
+
+
+--
+-- Name: acorn_location_types server_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.acorn_location_types
+    ADD CONSTRAINT server_id FOREIGN KEY (server_id) REFERENCES public.acorn_servers(id);
+
+
+--
+-- Name: acorn_location_locations type_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.acorn_location_locations
+    ADD CONSTRAINT type_id FOREIGN KEY (type_id) REFERENCES public.acorn_location_types(id) NOT VALID;
+
+
+--
+-- Name: acorn_location_types types_created_by_user; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.acorn_location_types
+    ADD CONSTRAINT types_created_by_user FOREIGN KEY (created_by_user_id) REFERENCES public.acorn_user_users(id);
+
+
+--
+-- Name: acorn_location_locations user_group_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.acorn_location_locations
+    ADD CONSTRAINT user_group_id FOREIGN KEY (user_group_id) REFERENCES public.acorn_user_user_groups(id);
 
 
 --

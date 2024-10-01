@@ -3,28 +3,28 @@
 # ===================================
 
 # Record name
-name: acorn.lojistiks::lang.models.address.label
+name: acorn.location::lang.models.address.label
 
 # Model Form Field configuration
-form: $/acorn/lojistiks/models/address/fields.yaml
+form: $/acorn/location/models/address/fields.yaml
 
 # Model Class name
-modelClass: Acorn\Lojistiks\Models\Address
+modelClass: Acorn\Location\Models\Address
 
 # Default redirect location
-defaultRedirect: acorn/lojistiks/addresses
+defaultRedirect: acorn/locations/addresses
 
 # Create page
 create:
     title: backend::lang.form.create_title
-    redirect: acorn/lojistiks/addresses/update/:id
-    redirectClose: acorn/lojistiks/addresses
+    redirect: acorn/locations/addresses/update/:id
+    redirectClose: acorn/locations/addresses
 
 # Update page
 update:
     title: backend::lang.form.update_title
-    redirect: acorn/lojistiks/addresses
-    redirectClose: acorn/lojistiks/addresses
+    redirect: acorn/locations/addresses
+    redirectClose: acorn/locations/addresses
 
 # Preview page
 preview:

@@ -1,4 +1,4 @@
-title: Location
+title: acorn.location::lang.models.location.label
 modelClass: Acorn\Location\Models\Location
 list: $/acorn/location/models/location/columns.yaml
 recordUrl: 'acorn/location/locations/update/:id'

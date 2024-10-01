@@ -7,7 +7,7 @@ class Plugin extends PluginBase
     /**
      * @var array Plugin dependencies
      */
-    public $require = ['Winter.Location'];
+    public $require = ['Winter.Location', 'Acorn.User'];
 
     public function registerComponents()
     {

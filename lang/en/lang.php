@@ -1,7 +1,13 @@
-<?php return [
+<?php
+
+return [
     'plugin' => [
-        'name' => 'Location',
-        'description' => 'Saved locations'
+        'name' => 'Facilities',
+        'description' => 'Saved facility',
+        'api_key_required' => 'A Google API key is required for Google address lookup',
+    ],
+    'permissions' => [
+        'manage_locations' => 'Manage Facilities',
     ],
     'models' => [
         'general' => [
@@ -12,20 +18,61 @@
             'select' => 'Select',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
+
+            'user_group' => 'Group',
+            'user' => 'Person',
+            'from_user_group' => 'From Group',
         ],
         'location' => [
+            'label' => 'Facility',
+            'label_plural' => 'Facilities',
+            'create_area' => 'Create area >>',
+            'add_gps' => 'Set GPS >>',
+            'initial_location' => 'Initial Location',
+        ],
+        'type' => [
+            'label' => 'Type',
+            'label_plural' => 'Types',
+            'parent' => 'Parent Type',
+        ],
+        'lookup' => [
+            'label' => 'Lookup',
+            'label_plural' => 'Lookups',
             'address' => 'Address',
-            'parent' => 'Containing location',
+
+            'google_address' => 'Lookup on Google Maps',
+
             'vicinity' => 'Vicinity',
             'city' => 'City',
             'postalcode' => 'Postal Code',
-            'country' => 'Country',
-            'state' => 'State',
+            'zip' => 'Postal Code',
+            'country_code' => 'Country Code',
+            'state_code' => 'State Code',
             'latitude' => 'Latitude',
             'longitude' => 'Longitude',
-            'add_area' => 'Add area >>',
-            'add_gps' => 'Set GPS >>',
-            'google_address' => 'Lookup on Google Maps',
+        ],
+        'area' => [
+            'label' => 'Area',
+            'label_plural' => 'Areas',
+            'parent' => 'Containing Area',
+        ],
+        'address' => [
+            'label' => 'Address',
+            'label_plural' => 'Addresses',
+            'number' => 'Number',
+            'street' => 'Street',
+            'auto_location' => 'Create an associated Location',
+            'select_existing' => 'Select an existing Address',
+        ],
+        'gps' => [
+            'label' => 'GPS',
+            'label_plural' => 'GPSs',
+            'longitude' => 'Longitude',
+            'latitude' => 'Latitude',
+        ],
+        'areatype' => [
+            'label' => 'Area Type',
+            'label_plural' => 'Area Types',
         ],
     ],
 ];

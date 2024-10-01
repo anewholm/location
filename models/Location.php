@@ -1,6 +1,15 @@
 <?php namespace Acorn\Location\Models;
 
 use Acorn\Model;
+use Acorn\Models\Server;
+use System\Models\File;
+
+// Useful
+use BackendAuth;
+use \Backend\Models\User;
+use \Backend\Models\UserGroup;
+use Exception;
+use Flash;
 
 /**
  * Model
@@ -26,6 +35,9 @@ class Location extends Model
     ];
     public $belongsTo = [
         'parent' => [Location::class, 'key' => 'parent_area_id'],
+        'address' => Address::class,
+        'user_group' => UserGroup::class,
+        'server'  => Server::class,
     ];
 
     /**
