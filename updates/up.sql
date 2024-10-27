@@ -561,6 +561,10 @@ ALTER TABLE ONLY public.acorn_location_locations
     ADD CONSTRAINT user_group_id FOREIGN KEY (user_group_id) REFERENCES public.acorn_user_user_groups(id);
 
 
+ALTER TABLE IF EXISTS public.acorn_servers add column location_id uuid;
+ALTER TABLE IF EXISTS ONLY public.acorn_servers
+    ADD CONSTRAINT location_id FOREIGN KEY (location_id) REFERENCES public.acorn_location_locations(id) on delete set null;
+
 --
 -- PostgreSQL database dump complete
 --
