@@ -21,14 +21,14 @@ fields:
         span: storm
         cssClass: col-xs-8 col-md-10 new-row
         readOnly: true
-    _create_vicinty:
+    _create_vicinity:
         label: acorn.location::lang.models.location.create_area
         type: partial
         path: popup_button
         controller: Acorn\Location\Controllers\Areas
         disabled: true
         span: storm
-        cssClass: col-xs-2
+        cssClass: col-xs-2 nolabel
     city:
         label: acorn.location::lang.models.lookup.city
         span: storm
@@ -41,7 +41,7 @@ fields:
         controller: Acorn\Location\Controllers\Areas
         disabled: true
         span: storm
-        cssClass: col-xs-2
+        cssClass: col-xs-2 nolabel
 
     # ---------------------- State
     country_code:
@@ -49,27 +49,27 @@ fields:
         span: storm
         cssClass: col-xs-8 col-md-10 new-row
         readOnly: true
-    _create_country:
+    _create_country_code:
         label: acorn.location::lang.models.location.create_area
         type: partial
         path: popup_button
         controller: Acorn\Location\Controllers\Areas
         disabled: true
         span: storm
-        cssClass: col-xs-2
+        cssClass: col-xs-2 nolabel
     state_code:
         label: acorn.location::lang.models.lookup.state_code
         span: storm
         cssClass: col-xs-8 col-md-10 new-row
         readOnly: true
-    _create_state:
+    _create_state_code:
         label: acorn.location::lang.models.location.create_area
         type: partial
         path: popup_button
         controller: Acorn\Location\Controllers\Areas
         disabled: true
         span: storm
-        cssClass: col-xs-2
+        cssClass: col-xs-2 nolabel
 
     # ---------------------- GPS
     latitude:
@@ -90,5 +90,8 @@ fields:
         path: add_button
         disabled: true
         span: storm
-        cssClass: col-xs-2
+        cssClass: col-xs-2 nolabel
+        # TODO: Temp fix _add from/to
+        from: longitude
+        to: longitude
 

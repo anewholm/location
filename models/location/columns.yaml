@@ -6,6 +6,11 @@ columns:
     name:
         label: acorn.location::lang.models.general.name
         type: text
+    image:
+        type: image
+    type[colour]:
+        label: backend::lang.branding.primary_color
+        type: colorpicker
     type[fully_qualified_name]:
         label: acorn.location::lang.models.type.label
         type: text

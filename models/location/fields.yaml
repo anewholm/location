@@ -6,8 +6,7 @@ fields:
         cssClass: col-xs-12 col-sm-4
     type:
         label: acorn.location::lang.models.type.label
-        type: dropdown
-        options: Acorn\Location\Models\Type::dropdownOptions
+        type: relation
         placeholder: acorn.location::lang.models.general.select
         span: storm
         cssClass: col-xs-6 col-sm-4

@@ -6,8 +6,19 @@ fields:
     name:
         label: acorn.location::lang.models.general.name
         type: text
+        span: auto
         searchable: true
+
+    colour:
+        type: colorpicker
+    parent:
+        label: acorn.location::lang.models.type.parent
+        type: relation
+        placeholder: backend::lang.form.select
+        span: auto
+
     _qrcode:
         type: partial
         context: update
+        span: auto
         path: ~/modules/acorn/partials/_qrcode

@@ -18,7 +18,6 @@ return [
             'select' => 'Select',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-
             'user_group' => 'Group',
             'user' => 'Person',
             'from_user_group' => 'From Group',
@@ -39,9 +38,7 @@ return [
             'label' => 'Lookup',
             'label_plural' => 'Lookups',
             'address' => 'Address',
-
             'google_address' => 'Lookup on Google Maps',
-
             'vicinity' => 'Vicinity',
             'city' => 'City',
             'postalcode' => 'Postal Code',
@@ -61,6 +58,8 @@ return [
             'label_plural' => 'Addresses',
             'number' => 'Number',
             'street' => 'Street',
+            'latitude' => 'Latitude',
+            'longitude' => 'Longitude',
             'auto_location' => 'Create an associated Location',
             'select_existing' => 'Select an existing Address',
         ],

@@ -15,3 +15,12 @@ navigation:
         icon: icon-building
         permissions:
             - acorn_location
+        sideMenu:
+            facilities:
+                label: acorn.location::lang.models.location.label_plural
+                url: acorn/location/locations
+                icon: icon-building
+            types:
+                label: acorn.location::lang.models.type.label_plural
+                url: acorn/location/types
+                icon: icon-stripe

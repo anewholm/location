@@ -13,6 +13,13 @@ columns:
         label: acorn.location::lang.models.general.name
         type: text
         searchable: true
+    colour:
+        type: colorpicker
+    parent:
+        label: acorn.location::lang.models.type.parent
+        relation: parent
+        searchable: true
+        select: name
     created_at:
         label: acorn.location::lang.models.general.created_at
         type: datetime

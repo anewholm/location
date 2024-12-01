@@ -37,6 +37,7 @@ class Location extends Model
         'parent' => [Location::class, 'key' => 'parent_area_id'],
         'address' => Address::class,
         'user_group' => UserGroup::class,
+        'type' => Type::class,
         'server'  => Server::class,
     ];
 

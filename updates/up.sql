@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 16.4 (Ubuntu 16.4-1.pgdg22.04+1)
--- Dumped by pg_dump version 16.4 (Ubuntu 16.4-1.pgdg22.04+1)
+-- Dumped from database version 16.4 (Ubuntu 16.4-1.pgdg22.04+2)
+-- Dumped by pg_dump version 16.4 (Ubuntu 16.4-1.pgdg22.04+2)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -188,7 +188,9 @@ CREATE TABLE public.acorn_location_types (
     server_id uuid NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     created_by_user_id uuid,
-    response text
+    response text,
+    colour character varying(1024),
+    image character varying(1024)
 );
 
 
@@ -560,10 +562,6 @@ ALTER TABLE ONLY public.acorn_location_types
 ALTER TABLE ONLY public.acorn_location_locations
     ADD CONSTRAINT user_group_id FOREIGN KEY (user_group_id) REFERENCES public.acorn_user_user_groups(id);
 
-
-ALTER TABLE IF EXISTS public.acorn_servers add column location_id uuid;
-ALTER TABLE IF EXISTS ONLY public.acorn_servers
-    ADD CONSTRAINT location_id FOREIGN KEY (location_id) REFERENCES public.acorn_location_locations(id) on delete set null;
 
 --
 -- PostgreSQL database dump complete
