@@ -30,11 +30,8 @@ class Location extends Model
      */
     public $table = 'acorn_location_locations';
 
-    public $hasMany = [
-        'children' => [Location::class, 'key' => 'parent_area_id'],
-    ];
+    public $hasMany = [];
     public $belongsTo = [
-        'parent' => [Location::class, 'key' => 'parent_area_id'],
         'address' => Address::class,
         'user_group' => UserGroup::class,
         'type' => Type::class,
