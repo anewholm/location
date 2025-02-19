@@ -1,8 +1,8 @@
 <div data-control="toolbar">
     <a
-        href="<?= Backend::url('acorn/locations/areatypes/create') ?>"
+        href="<?= Backend::url('acornassociated/locations/areatypes/create') ?>"
         class="btn btn-primary wn-icon-plus">
-        <?= e(trans('backend::lang.form.create_title', ['name' => trans('acorn.location::lang.models.areatype.label')])); ?>
+        <?= e(trans('backend::lang.form.create_title', ['name' => trans('acornassociated.location::lang.models.areatype.label')])); ?>
     </a>
 
     <button

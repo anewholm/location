@@ -1,8 +1,8 @@
 <?php
 
-namespace Acorn\Location\Models;
+namespace AcornAssociated\Location\Models;
 
-use Acorn\Model;
+use AcornAssociated\Model;
 
 /**
  * Lookup Model
@@ -14,7 +14,7 @@ class Lookup extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'acorn_location_lookups';
+    public $table = 'acornassociated_location_lookups';
 
     /**
      * @var array Guarded fields

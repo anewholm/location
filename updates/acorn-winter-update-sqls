@@ -17,11 +17,11 @@ outfile=up.sql
 # Get DB connection parameters from Laravel
 # NOTE: This script can be run from several places:
 #   /var/www/<website> to update all SQL dumps
-#   ~/plugins/acorn/<plugin>/updates to update a specific SQL dump
+#   ~/plugins/acornassociated/<plugin>/updates to update a specific SQL dump
 env='.env'
 if [ -f $env ] && [ -d plugins ]; then
   # Batch run on whole website
-  for plugin in plugins/acorn/*/; do
+  for plugin in plugins/acornassociated/*/; do
     if [ -f "$plugin/updates/$script" ]; then
       read -p "${INFO}RUN${NC} ${YELLOW}$plugin${NC} (y|n)? [n] " yn
       if [ "$yn" == 'y' ]; then
@@ -64,7 +64,7 @@ author_plugin="${author_name}_${plugin_name}"
 table_space="$schema.${author_plugin}_*"
 function_space="[^ ]*$author_plugin[a-z0-9_]+\([a-z0-9, ]*\)"
 echo "Author: ${YELLOW}$author_name${NC}, Plugin: ${YELLOW}$plugin_name${NC}, Tablespace: ${YELLOW}$table_space${NC}"
-if [ "$author_name" != 'acorn' ]; then
+if [ "$author_name" != 'acornassociated' ]; then
   echo "${RED}$author_name${NC} is not ours. Aborted"
   exit 1
 fi

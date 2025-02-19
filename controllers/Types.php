@@ -1,4 +1,4 @@
-<?php namespace Acorn\Location\Controllers;
+<?php namespace AcornAssociated\Location\Controllers;
 
 use BackendMenu;
 use Backend\Classes\Controller;
@@ -20,6 +20,6 @@ class Types extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Acorn.Location', 'location', 'types');
+        BackendMenu::setContext('AcornAssociated.Location', 'location', 'types');
     }
 }

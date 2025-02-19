@@ -1,7 +1,7 @@
-<?php namespace Acorn\Location\Controllers;
+<?php namespace AcornAssociated\Location\Controllers;
 
 use BackendMenu;
-use Acorn\Controller;
+use AcornAssociated\Controller;
 
 /**
  * Lookups Backend Controller
@@ -20,6 +20,6 @@ class Lookups extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Acorn.Location', 'location', 'lookups');
+        BackendMenu::setContext('AcornAssociated.Location', 'location', 'lookups');
     }
 }

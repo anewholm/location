@@ -1,26 +1,26 @@
 plugin:
-    name: acorn.location::lang.plugin.name
-    description: acorn.location::lang.plugin.description
-    author: 'Acorn'
+    name: acornassociated.location::lang.plugin.name
+    description: acornassociated.location::lang.plugin.description
+    author: 'Acorn Associated'
     icon: wn-building
     replaces: {  }
 permissions:
-    acorn_location:
-        label: acorn.location::lang.permissions.manage_locations
-        tab: acorn.location::lang.plugin.name
+    acornassociated_location:
+        label: acornassociated.location::lang.permissions.manage_locations
+        tab: acornassociated.location::lang.plugin.name
 navigation:
     location-main-menu-item:
-        label: acorn.location::lang.plugin.name
-        url: acorn/location/locations
+        label: acornassociated.location::lang.plugin.name
+        url: acornassociated/location/locations
         icon: icon-building
         permissions:
-            - acorn_location
+            - acornassociated_location
         sideMenu:
             facilities:
-                label: acorn.location::lang.models.location.label_plural
-                url: acorn/location/locations
+                label: acornassociated.location::lang.models.location.label_plural
+                url: acornassociated/location/locations
                 icon: icon-building
             types:
-                label: acorn.location::lang.models.type.label_plural
-                url: acorn/location/types
+                label: acornassociated.location::lang.models.type.label_plural
+                url: acornassociated/location/types
                 icon: icon-stripe

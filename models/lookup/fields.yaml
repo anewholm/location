@@ -1,10 +1,10 @@
 fields:
     # ---------------------- Stuff
     address:
-        label: acorn.location::lang.models.lookup.google_address
+        label: acornassociated.location::lang.models.lookup.google_address
         type: addressfinder
         span: full
-        #placeholder: acorn.location::lang.models.general.select
+        #placeholder: acornassociated.location::lang.models.general.select
         #countryRestriction: 'us,ch'
         fieldMap:
             vicinity: vicinity
@@ -17,75 +17,75 @@ fields:
 
     # ---------------------- Locality
     vicinity:
-        label: acorn.location::lang.models.lookup.vicinity
+        label: acornassociated.location::lang.models.lookup.vicinity
         span: storm
         cssClass: col-xs-8 col-md-10 new-row
         readOnly: true
     _create_vicinity:
-        label: acorn.location::lang.models.location.create_area
+        label: acornassociated.location::lang.models.location.create_area
         type: partial
         path: popup_button
-        controller: Acorn\Location\Controllers\Areas
+        controller: AcornAssociated\Location\Controllers\Areas
         disabled: true
         span: storm
         cssClass: col-xs-2 nolabel
     city:
-        label: acorn.location::lang.models.lookup.city
+        label: acornassociated.location::lang.models.lookup.city
         span: storm
         cssClass: col-xs-8 col-md-10 new-row
         readOnly: true
     _create_city:
-        label: acorn.location::lang.models.location.create_area
+        label: acornassociated.location::lang.models.location.create_area
         type: partial
         path: popup_button
-        controller: Acorn\Location\Controllers\Areas
+        controller: AcornAssociated\Location\Controllers\Areas
         disabled: true
         span: storm
         cssClass: col-xs-2 nolabel
 
     # ---------------------- State
     country_code:
-        label: acorn.location::lang.models.lookup.country_code
+        label: acornassociated.location::lang.models.lookup.country_code
         span: storm
         cssClass: col-xs-8 col-md-10 new-row
         readOnly: true
     _create_country_code:
-        label: acorn.location::lang.models.location.create_area
+        label: acornassociated.location::lang.models.location.create_area
         type: partial
         path: popup_button
-        controller: Acorn\Location\Controllers\Areas
+        controller: AcornAssociated\Location\Controllers\Areas
         disabled: true
         span: storm
         cssClass: col-xs-2 nolabel
     state_code:
-        label: acorn.location::lang.models.lookup.state_code
+        label: acornassociated.location::lang.models.lookup.state_code
         span: storm
         cssClass: col-xs-8 col-md-10 new-row
         readOnly: true
     _create_state_code:
-        label: acorn.location::lang.models.location.create_area
+        label: acornassociated.location::lang.models.location.create_area
         type: partial
         path: popup_button
-        controller: Acorn\Location\Controllers\Areas
+        controller: AcornAssociated\Location\Controllers\Areas
         disabled: true
         span: storm
         cssClass: col-xs-2 nolabel
 
     # ---------------------- GPS
     latitude:
-        label: acorn.location::lang.models.lookup.latitude
+        label: acornassociated.location::lang.models.lookup.latitude
         type: number
         span: storm
         cssClass: col-xs-4 col-md-5 new-row
         readOnly: true
     longitude:
-        label: acorn.location::lang.models.lookup.longitude
+        label: acornassociated.location::lang.models.lookup.longitude
         type: number
         span: storm
         cssClass: col-xs-4 col-md-5
         readOnly: true
     _add_gps:
-        label: acorn.location::lang.models.location.add_gps
+        label: acornassociated.location::lang.models.location.add_gps
         type: partial
         path: add_button
         disabled: true

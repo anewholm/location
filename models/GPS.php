@@ -1,9 +1,9 @@
 <?php
 
-namespace Acorn\Location\Models;
+namespace AcornAssociated\Location\Models;
 
-use Acorn\Model;
-use Acorn\Models\Server;
+use AcornAssociated\Model;
+use AcornAssociated\Models\Server;
 
 /**
  * GPS Model
@@ -15,7 +15,7 @@ class GPS extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'acorn_location_gps';
+    public $table = 'acornassociated_location_gps';
 
     /**
      * @var array Guarded fields

@@ -1,10 +1,10 @@
 <?php
 
-namespace Acorn\Location\Models;
+namespace AcornAssociated\Location\Models;
 
-use Acorn\Model;
-use Acorn\Models\Server;
-use Acorn\Collection;
+use AcornAssociated\Model;
+use AcornAssociated\Models\Server;
+use AcornAssociated\Collection;
 
 /**
  * Area Model
@@ -16,7 +16,7 @@ class Area extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'acorn_location_areas';
+    public $table = 'acornassociated_location_areas';
 
     /**
      * @var array Guarded fields

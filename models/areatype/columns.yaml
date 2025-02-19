@@ -4,22 +4,22 @@
 
 columns:
     id:
-        label: acorn.location::lang.models.general.id
+        label: acornassociated.location::lang.models.general.id
         type: number
         searchable: false
         sortable: true
         invisible: true
     name:
-        label: acorn.location::lang.models.general.name
+        label: acornassociated.location::lang.models.general.name
         type: text
         searchable: true
     created_at:
-        label: acorn.location::lang.models.general.created_at
+        label: acornassociated.location::lang.models.general.created_at
         type: datetime
         searchable: true
         sortable: true
         invisible: true
     _qrcode:
         type: partial
-        path: ~/modules/acorn/partials/_qrcode
+        path: ~/modules/acornassociated/partials/_qrcode
         sortable: false

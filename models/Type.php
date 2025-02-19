@@ -1,9 +1,9 @@
 <?php
 
-namespace Acorn\Location\Models;
+namespace AcornAssociated\Location\Models;
 
-use Acorn\Model;
-use Acorn\Models\Server;
+use AcornAssociated\Model;
+use AcornAssociated\Models\Server;
 
 class Type extends Model
 {
@@ -12,7 +12,7 @@ class Type extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'acorn_location_types';
+    public $table = 'acornassociated_location_types';
 
     /**
      * @var array Guarded fields
