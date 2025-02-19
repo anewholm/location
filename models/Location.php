@@ -1,7 +1,7 @@
-<?php namespace AcornAssociated\Location\Models;
+<?php namespace Acorn\Location\Models;
 
-use AcornAssociated\Model;
-use AcornAssociated\Models\Server;
+use Acorn\Model;
+use Acorn\Models\Server;
 use System\Models\File;
 
 // Useful
@@ -28,7 +28,7 @@ class Location extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'acornassociated_location_locations';
+    public $table = 'acorn_location_locations';
 
     public $hasMany = [];
     public $belongsTo = [

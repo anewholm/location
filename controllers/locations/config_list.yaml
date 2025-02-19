@@ -1,7 +1,7 @@
-title: acornassociated.location::lang.models.location.label
-modelClass: AcornAssociated\Location\Models\Location
-list: $/acornassociated/location/models/location/columns.yaml
-recordUrl: 'acornassociated/location/locations/update/:id'
+title: acorn.location::lang.models.location.label
+modelClass: Acorn\Location\Models\Location
+list: $/acorn/location/models/location/columns.yaml
+recordUrl: 'acorn/location/locations/update/:id'
 noRecordsMessage: 'backend::lang.list.no_records'
 recordsPerPage: 20
 showSetup: true

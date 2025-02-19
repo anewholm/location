@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/acornassociated/location/models/type/columns.yaml
+list: $/acorn/location/models/type/columns.yaml
 
 # Model Class name
-modelClass: AcornAssociated\Location\Models\Type
+modelClass: Acorn\Location\Models\Type
 
 # List Title
-title: 'acornassociated.location::lang.models.type.label_plural'
+title: 'acorn.location::lang.models.type.label_plural'
 
 # Link URL for each record
-recordUrl: acornassociated/location/types/update/:id
+recordUrl: acorn/location/types/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

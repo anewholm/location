@@ -1,4 +1,4 @@
 title: Location
-modelClass: AcornAssociated\Location\Models\Location
+modelClass: Acorn\Location\Models\Location
 toolbar:
     buttons: reorder_toolbar

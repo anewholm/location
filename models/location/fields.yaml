@@ -1,20 +1,20 @@
 fields:
     name:
-        label: acornassociated.location::lang.models.general.name
+        label: acorn.location::lang.models.general.name
         type: text
         span: storm
         cssClass: col-xs-12 col-sm-4
     type:
-        label: acornassociated.location::lang.models.type.label
+        label: acorn.location::lang.models.type.label
         type: relation
-        placeholder: acornassociated.location::lang.models.general.select
+        placeholder: acorn.location::lang.models.general.select
         span: storm
         cssClass: col-xs-6 col-sm-4
     user_group:
-        label: acornassociated.location::lang.models.general.user_group
+        label: acorn.location::lang.models.general.user_group
         type: dropdown
-        options: AcornAssociated\User\Models\UserGroup::dropdownOptions
-        placeholder: acornassociated.location::lang.models.general.select
+        options: Acorn\User\Models\UserGroup::dropdownOptions
+        placeholder: acorn.location::lang.models.general.select
         span: storm
         cssClass: col-xs-6 col-sm-4
     # TODO: _create_user_group:
@@ -29,14 +29,14 @@ fields:
 
     # -------------------------------- Existing Address
     _select_an_existing_address:
-        label: acornassociated.location::lang.models.address.select_existing
+        label: acorn.location::lang.models.address.select_existing
         type: switch
         span: storm
         cssClass: col-xs-6 new-row
         context: create
     address:
         type: dropdown
-        options: AcornAssociated\Location\Models\Address::dropdownOptions
+        options: Acorn\Location\Models\Address::dropdownOptions
         nameFrom: fully_qualified_name
         span: storm
         cssClass: col-xs-6
@@ -48,7 +48,7 @@ fields:
 
     # -------------------------------- New Address
     address[number]:
-        label: acornassociated.location::lang.models.address.number
+        label: acorn.location::lang.models.address.number
         type: text
         span: storm
         cssClass: col-xs-4 col-md-2 new-row
@@ -57,7 +57,7 @@ fields:
             condition: checked
             action: disable
     address[name]:
-        label: acornassociated.location::lang.models.address.label
+        label: acorn.location::lang.models.address.label
         type: text
         span: storm
         cssClass: col-xs-8 col-md-4
@@ -66,10 +66,10 @@ fields:
             condition: checked
             action: disable
     address[area]:
-        label: acornassociated.location::lang.models.area.label
+        label: acorn.location::lang.models.area.label
         type: dropdown
-        options: AcornAssociated\Location\Models\Area::dropdownOptions
-        placeholder: acornassociated.location::lang.models.general.select
+        options: Acorn\Location\Models\Area::dropdownOptions
+        placeholder: acorn.location::lang.models.general.select
         span: storm
         cssClass: col-xs-10 col-md-5
         required: true
@@ -80,14 +80,14 @@ fields:
     _create_area:
           type: partial
           path: popup_button
-          controller: AcornAssociated\Location\Controllers\Areas
+          controller: Acorn\Location\Controllers\Areas
           span: storm
           cssClass: col-xs-2 col-md-1 p-0 hug-left
           context:
             - create
             - update
     address[gps][longitude]:
-        label: acornassociated.location::lang.models.gps.longitude
+        label: acorn.location::lang.models.gps.longitude
         type: number
         span: storm
         cssClass: col-xs-6 new-row
@@ -96,7 +96,7 @@ fields:
             condition: checked
             action: disable
     address[gps][latitude]:
-        label: acornassociated.location::lang.models.gps.latitude
+        label: acorn.location::lang.models.gps.latitude
         type: number
         span: storm
         cssClass: col-xs-6
@@ -105,7 +105,7 @@ fields:
             condition: checked
             action: disable
     image:
-        label: acornassociated.location::lang.models.general.image
+        label: acorn.location::lang.models.general.image
         type: mediafinder
         mode: image
         useCaption: true
@@ -118,4 +118,4 @@ fields:
     _qrcode:
         type: partial
         context: update
-        path: ~/modules/acornassociated/partials/_qrcode
+        path: ~/modules/acorn/partials/_qrcode

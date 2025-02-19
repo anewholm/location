@@ -3,28 +3,28 @@
 # ===================================
 
 # Record name
-name: acornassociated.location::lang.models.address.label
+name: acorn.location::lang.models.address.label
 
 # Model Form Field configuration
-form: $/acornassociated/location/models/address/fields.yaml
+form: $/acorn/location/models/address/fields.yaml
 
 # Model Class name
-modelClass: AcornAssociated\Location\Models\Address
+modelClass: Acorn\Location\Models\Address
 
 # Default redirect location
-defaultRedirect: acornassociated/locations/addresses
+defaultRedirect: acorn/locations/addresses
 
 # Create page
 create:
     title: backend::lang.form.create_title
-    redirect: acornassociated/locations/addresses/update/:id
-    redirectClose: acornassociated/locations/addresses
+    redirect: acorn/locations/addresses/update/:id
+    redirectClose: acorn/locations/addresses
 
 # Update page
 update:
     title: backend::lang.form.update_title
-    redirect: acornassociated/locations/addresses
-    redirectClose: acornassociated/locations/addresses
+    redirect: acorn/locations/addresses
+    redirectClose: acorn/locations/addresses
 
 # Preview page
 preview:

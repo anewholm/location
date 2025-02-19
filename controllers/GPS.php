@@ -1,7 +1,7 @@
-<?php namespace AcornAssociated\Location\Controllers;
+<?php namespace Acorn\Location\Controllers;
 
 use BackendMenu;
-use AcornAssociated\Controller;
+use Acorn\Controller;
 
 /**
  * G P S Backend Controller
@@ -20,6 +20,6 @@ class GPS extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('AcornAssociated.Location', 'locations', 'gps');
+        BackendMenu::setContext('Acorn.Location', 'locations', 'gps');
     }
 }
