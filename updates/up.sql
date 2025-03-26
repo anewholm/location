@@ -154,7 +154,6 @@ CREATE TABLE public.acorn_location_locations (
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     created_by_user_id uuid,
     response text,
-    user_group_id uuid,
     type_id uuid
 );
 

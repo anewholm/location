@@ -3,29 +3,13 @@ fields:
         label: acorn.location::lang.models.general.name
         type: text
         span: storm
-        cssClass: col-xs-12 col-sm-4
+        cssClass: col-xs-12
     type:
         label: acorn.location::lang.models.type.label
         type: relation
         placeholder: acorn.location::lang.models.general.select
         span: storm
-        cssClass: col-xs-6 col-sm-4
-    user_group:
-        label: acorn.location::lang.models.general.user_group
-        type: dropdown
-        options: Acorn\User\Models\UserGroup::dropdownOptions
-        placeholder: acorn.location::lang.models.general.select
-        span: storm
-        cssClass: col-xs-6 col-sm-4
-    # TODO: _create_user_group:
-          #type: partial
-          #path: popup_button
-          #controller: Backend\Controllers\UserGroups
-          #span: storm
-          #cssClass: col-xs-1 p-0 hug-left
-          #context:
-            #- create
-            #- update
+        cssClass: col-xs-6
 
     # -------------------------------- Existing Address
     _select_an_existing_address:

@@ -20,6 +20,14 @@
             'user' => 'Person',
             'from_user_group' => 'From Group'
         ],
+        'settings' => [
+            'label' => 'Location Setting',
+            'label_plural' => 'Location Settings',
+            'label_short_plural' => 'Settings',
+            'description' => 'Manage location based settings',
+            'google_address_lookup' => 'Google address lookup',
+            'google_address_lookup_comment' => 'Requires <a href="/backend/system/settings/update/winter/location/settings#primarytab-winterlocationlangsettingscredentials-tab">API key</a>',
+        ],
         'location' => [
             'label' => 'Facility',
             'label_plural' => 'Facilities',

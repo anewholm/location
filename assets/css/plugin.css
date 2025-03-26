@@ -3,12 +3,12 @@
 #location-create {
   padding:1em;
 }
-#location-lookup {
+#location-lookup.google-address-lookup {
   width:39%;
   float:left;
   border-right:3px solid #d7d7d7;
 }
-#location-create {
+#location-create.google-address-lookup {
   width:59%;
   float:right;
 }

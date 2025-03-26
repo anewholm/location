@@ -34,21 +34,26 @@ columns:
         label: acorn.location::lang.models.lookup.city
         type: text
         invisible: true
+        setting: google-address-lookup
     zip:
         label: acorn.location::lang.models.lookup.zip
         type: text
         invisible: true
+        setting: google-address-lookup
     country_code:
         label: acorn.location::lang.models.lookup.country_code
         type: text
         invisible: true
+        setting: google-address-lookup
     state_code:
         label: acorn.location::lang.models.lookup.state_code
         type: text
         invisible: true
+        setting: google-address-lookup
     vicinity:
         label: acorn.location::lang.models.lookup.vicinity
         type: text
         invisible: true
+        setting: google-address-lookup
 
 
