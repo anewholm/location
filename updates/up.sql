@@ -82,11 +82,12 @@ CREATE TABLE public.acorn_location_addresses (
     name character varying(1024) NOT NULL,
     number character varying(1024),
     image character varying(2048),
+    description text COLLATE pg_catalog."default",
     area_id uuid NOT NULL,
     gps_id uuid,
     server_id uuid NOT NULL,
     created_by_user_id uuid,
-    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
     response text,
     lookup_id uuid
 );
@@ -99,8 +100,9 @@ CREATE TABLE public.acorn_location_addresses (
 CREATE TABLE public.acorn_location_area_types (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
     name character varying(1024) NOT NULL,
+    description text COLLATE pg_catalog."default",
     server_id uuid NOT NULL,
-    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
     created_by_user_id uuid,
     response text
 );
@@ -113,13 +115,14 @@ CREATE TABLE public.acorn_location_area_types (
 CREATE TABLE public.acorn_location_areas (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
     name character varying(1024) NOT NULL,
+    description text COLLATE pg_catalog."default",
     area_type_id uuid NOT NULL,
     parent_area_id uuid,
     gps_id uuid,
     server_id uuid NOT NULL,
     version integer DEFAULT 1 NOT NULL,
     is_current_version boolean DEFAULT true NOT NULL,
-    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
     created_by_user_id uuid,
     response text
 );
@@ -134,7 +137,7 @@ CREATE TABLE public.acorn_location_gps (
     longitude double precision,
     latitude double precision,
     server_id uuid NOT NULL,
-    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
     created_by_user_id uuid,
     response text
 );
@@ -148,9 +151,10 @@ CREATE TABLE public.acorn_location_locations (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
     address_id uuid NOT NULL,
     name character varying(2048) NOT NULL,
+    description text COLLATE pg_catalog."default",
     image character varying(2048),
     server_id uuid NOT NULL,
-    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
     created_by_user_id uuid,
     response text,
     type_id uuid
@@ -171,7 +175,7 @@ CREATE TABLE public.acorn_location_lookup (
     latitude character varying(1024) NOT NULL,
     longitude character varying(1024) NOT NULL,
     vicinity character varying(1024) NOT NULL,
-    created_at timestamp with time zone DEFAULT now() NOT NULL
+    created_at timestamp without time zone DEFAULT now() NOT NULL
 );
 
 
@@ -182,9 +186,10 @@ CREATE TABLE public.acorn_location_lookup (
 CREATE TABLE public.acorn_location_types (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
     name character varying(1024) NOT NULL,
+    description text COLLATE pg_catalog."default",
     parent_type_id uuid,
     server_id uuid NOT NULL,
-    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
     created_by_user_id uuid,
     response text,
     colour character varying(1024),
