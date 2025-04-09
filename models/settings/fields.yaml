@@ -1,7 +1,7 @@
 fields:
     google-address-lookup:
-        label: acornassociated.location::lang.models.settings.google_address_lookup
+        label: acorn.location::lang.models.settings.google_address_lookup
         default: 0
-        comment: acornassociated.location::lang.models.settings.google_address_lookup_comment
+        comment: acorn.location::lang.models.settings.google_address_lookup_comment
         commentHtml: true
         type: checkbox

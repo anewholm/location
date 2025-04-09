@@ -1,9 +1,9 @@
-<?php namespace AcornAssociated\Location;
+<?php namespace Acorn\Location;
 
 use System\Classes\PluginBase;
-use AcornAssociated\User\Models\UserGroup;
-use AcornAssociated\User\Controllers\UserGroups;
-use AcornAssociated\Location\Models\Location;
+use Acorn\User\Models\UserGroup;
+use Acorn\User\Controllers\UserGroups;
+use Acorn\Location\Models\Location;
 
 class Plugin extends PluginBase
 {
@@ -11,7 +11,7 @@ class Plugin extends PluginBase
      * @var array Plugin dependencies
      * Requires Winter.Location for Google API lookup and Country/States
      */
-    public $require = ['Winter.Location', 'AcornAssociated.User'];
+    public $require = ['Winter.Location', 'Acorn.User'];
 
     public function boot()
     {
@@ -23,7 +23,7 @@ class Plugin extends PluginBase
             if ($model instanceof UserGroup) {
                 $form->addFields([
                     'location' => [
-                        'label'       => 'acornassociated.location::lang.models.location.label',
+                        'label'       => 'acorn.location::lang.models.location.label',
                         'span'        => 'auto',
                         'type'        => 'relation',
                         'placeholder' => 'backend::lang.form.select',
@@ -50,14 +50,14 @@ class Plugin extends PluginBase
     {
         return [
             'settings' => [
-                'label'       => 'acornassociated.location::lang.models.settings.label_plural',
-                'description' => 'acornassociated.location::lang.models.settings.description',
-                'category'    => 'AcornAssociated',
+                'label'       => 'acorn.location::lang.models.settings.label_plural',
+                'description' => 'acorn.location::lang.models.settings.description',
+                'category'    => 'Acorn',
                 'icon'        => 'icon-location',
-                'class'       => 'AcornAssociated\Location\Models\Settings',
+                'class'       => 'Acorn\Location\Models\Settings',
                 'order'       => 500,
                 'keywords'    => 'location',
-                'permissions' => ['acornassociated.location.settings']
+                'permissions' => ['acorn.location.settings']
             ]
         ];
     }

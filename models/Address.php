@@ -1,9 +1,9 @@
 <?php
 
-namespace AcornAssociated\Location\Models;
+namespace Acorn\Location\Models;
 
-use AcornAssociated\Model;
-use AcornAssociated\Models\Server;
+use Acorn\Model;
+use Acorn\Models\Server;
 
 /**
  * Address Model
@@ -15,7 +15,7 @@ class Address extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'acornassociated_location_addresses';
+    public $table = 'acorn_location_addresses';
 
     /**
      * @var array Guarded fields

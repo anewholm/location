@@ -1,9 +1,9 @@
 <?php
 
-namespace AcornAssociated\Location\Models;
+namespace Acorn\Location\Models;
 
-use AcornAssociated\Model;
-use AcornAssociated\Models\Server;
+use Acorn\Model;
+use Acorn\Models\Server;
 
 /**
  * AreaType Model
@@ -15,7 +15,7 @@ class AreaType extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'acornassociated_location_area_types';
+    public $table = 'acorn_location_area_types';
 
     /**
      * @var array Guarded fields

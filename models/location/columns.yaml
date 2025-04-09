@@ -1,10 +1,10 @@
 columns:
     id:
-        label: acornassociated.location::lang.models.general.id
+        label: acorn.location::lang.models.general.id
         type: number
         invisible: true
     name:
-        label: acornassociated.location::lang.models.general.name
+        label: acorn.location::lang.models.general.name
         type: text
     image:
         type: image
@@ -12,46 +12,46 @@ columns:
         label: backend::lang.branding.primary_color
         type: colorpicker
     type[fully_qualified_name]:
-        label: acornassociated.location::lang.models.type.label
+        label: acorn.location::lang.models.type.label
         type: text
     address[fully_qualified_name]:
-        label: acornassociated.location::lang.models.address.label
+        label: acorn.location::lang.models.address.label
         type: text
     address[area][fully_qualified_name]:
-        label: acornassociated.location::lang.models.area.label
+        label: acorn.location::lang.models.area.label
         type: text
     address[gps][latitude]:
-        label: acornassociated.location::lang.models.gps.latitude
+        label: acorn.location::lang.models.gps.latitude
         type: number
         invisible: true
     address[gps][longitude]:
-        label: acornassociated.location::lang.models.gps.longitude
+        label: acorn.location::lang.models.gps.longitude
         type: number
         invisible: true
 
     # ---------------------------- Google lookup values
     city:
-        label: acornassociated.location::lang.models.lookup.city
+        label: acorn.location::lang.models.lookup.city
         type: text
         invisible: true
         setting: google-address-lookup
     zip:
-        label: acornassociated.location::lang.models.lookup.zip
+        label: acorn.location::lang.models.lookup.zip
         type: text
         invisible: true
         setting: google-address-lookup
     country_code:
-        label: acornassociated.location::lang.models.lookup.country_code
+        label: acorn.location::lang.models.lookup.country_code
         type: text
         invisible: true
         setting: google-address-lookup
     state_code:
-        label: acornassociated.location::lang.models.lookup.state_code
+        label: acorn.location::lang.models.lookup.state_code
         type: text
         invisible: true
         setting: google-address-lookup
     vicinity:
-        label: acornassociated.location::lang.models.lookup.vicinity
+        label: acorn.location::lang.models.lookup.vicinity
         type: text
         invisible: true
         setting: google-address-lookup

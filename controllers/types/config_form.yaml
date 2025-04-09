@@ -3,28 +3,28 @@
 # ===================================
 
 # Record name
-name: 'acornassociated.location::lang.models.type.label'
+name: 'acorn.location::lang.models.type.label'
 
 # Model Form Field configuration
-form: $/acornassociated/location/models/type/fields.yaml
+form: $/acorn/location/models/type/fields.yaml
 
 # Model Class name
-modelClass: AcornAssociated\Location\Models\Type
+modelClass: Acorn\Location\Models\Type
 
 # Default redirect location
-defaultRedirect: acornassociated/location/types
+defaultRedirect: acorn/location/types
 
 # Create page
 create:
     title: backend::lang.form.create_title
-    redirect: acornassociated/location/types/update/:id
-    redirectClose: acornassociated/location/types
+    redirect: acorn/location/types/update/:id
+    redirectClose: acorn/location/types
 
 # Update page
 update:
     title: backend::lang.form.update_title
-    redirect: acornassociated/location/types
-    redirectClose: acornassociated/location/types
+    redirect: acorn/location/types
+    redirectClose: acorn/location/types
 
 # Preview page
 preview:
