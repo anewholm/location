@@ -1,11 +1,11 @@
-<?php namespace Acorn\Location\Controllers;
+<?php namespace AcornAssociated\Location\Controllers;
 
-use Acorn\Controller;
+use AcornAssociated\Controller;
 use BackendMenu;
 
 class Locations extends Controller
 {
-    public $implement = [        'Acorn\Behaviors\ListController',        'Backend\Behaviors\FormController',        'Backend\Behaviors\ReorderController'    ];
+    public $implement = [        'AcornAssociated\Behaviors\ListController',        'Backend\Behaviors\FormController',        'Backend\Behaviors\ReorderController'    ];
     
     public $listConfig = 'config_list.yaml';
     public $formConfig = 'config_form.yaml';
@@ -15,6 +15,6 @@ class Locations extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Acorn.Location', 'location-main-menu-item');
+        BackendMenu::setContext('AcornAssociated.Location', 'location-main-menu-item');
     }
 }

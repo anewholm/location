@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/acorn/location/models/gp/columns.yaml
+list: $/acornassociated/location/models/gp/columns.yaml
 
 # Model Class name
-modelClass: Acorn\Location\Models\GP
+modelClass: AcornAssociated\Location\Models\GP
 
 # List Title
-title: acorn.location::lang.models.gps.label_plural
+title: acornassociated.location::lang.models.gps.label_plural
 
 # Link URL for each record
-recordUrl: acorn/locations/gps/update/:id
+recordUrl: acornassociated/locations/gps/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

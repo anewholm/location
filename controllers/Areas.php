@@ -1,7 +1,7 @@
-<?php namespace Acorn\Location\Controllers;
+<?php namespace AcornAssociated\Location\Controllers;
 
 use BackendMenu;
-use Acorn\Controller;
+use AcornAssociated\Controller;
 
 /**
  * Area Backend Controller
@@ -20,6 +20,6 @@ class Areas extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Acorn.Location', 'locations', 'areas');
+        BackendMenu::setContext('AcornAssociated.Location', 'locations', 'areas');
     }
 }

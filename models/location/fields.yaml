@@ -1,26 +1,26 @@
 fields:
     name:
-        label: acorn.location::lang.models.general.name
+        label: acornassociated.location::lang.models.general.name
         type: text
         span: storm
         cssClass: col-xs-12
     type:
-        label: acorn.location::lang.models.type.label
+        label: acornassociated.location::lang.models.type.label
         type: relation
-        placeholder: acorn.location::lang.models.general.select
+        placeholder: acornassociated.location::lang.models.general.select
         span: storm
         cssClass: col-xs-6
 
     # -------------------------------- Existing Address
     _select_an_existing_address:
-        label: acorn.location::lang.models.address.select_existing
+        label: acornassociated.location::lang.models.address.select_existing
         type: switch
         span: storm
         cssClass: col-xs-6 new-row
         context: create
     address:
         type: dropdown
-        options: Acorn\Location\Models\Address::dropdownOptions
+        options: AcornAssociated\Location\Models\Address::dropdownOptions
         nameFrom: fully_qualified_name
         span: storm
         cssClass: col-xs-6
@@ -32,7 +32,7 @@ fields:
 
     # -------------------------------- New Address
     address[number]:
-        label: acorn.location::lang.models.address.number
+        label: acornassociated.location::lang.models.address.number
         type: text
         span: storm
         cssClass: col-xs-4 col-md-2 new-row
@@ -41,7 +41,7 @@ fields:
             condition: checked
             action: disable
     address[name]:
-        label: acorn.location::lang.models.address.label
+        label: acornassociated.location::lang.models.address.label
         type: text
         span: storm
         cssClass: col-xs-8 col-md-4
@@ -50,10 +50,10 @@ fields:
             condition: checked
             action: disable
     address[area]:
-        label: acorn.location::lang.models.area.label
+        label: acornassociated.location::lang.models.area.label
         type: dropdown
-        options: Acorn\Location\Models\Area::dropdownOptions
-        placeholder: acorn.location::lang.models.general.select
+        options: AcornAssociated\Location\Models\Area::dropdownOptions
+        placeholder: acornassociated.location::lang.models.general.select
         span: storm
         cssClass: col-xs-10 col-md-5
         required: true
@@ -64,14 +64,14 @@ fields:
     _create_area:
           type: partial
           path: popup_button
-          controller: Acorn\Location\Controllers\Areas
+          controller: AcornAssociated\Location\Controllers\Areas
           span: storm
           cssClass: col-xs-2 col-md-1 p-0 hug-left
           context:
             - create
             - update
     address[gps][longitude]:
-        label: acorn.location::lang.models.gps.longitude
+        label: acornassociated.location::lang.models.gps.longitude
         type: number
         span: storm
         cssClass: col-xs-6 new-row
@@ -80,7 +80,7 @@ fields:
             condition: checked
             action: disable
     address[gps][latitude]:
-        label: acorn.location::lang.models.gps.latitude
+        label: acornassociated.location::lang.models.gps.latitude
         type: number
         span: storm
         cssClass: col-xs-6
@@ -89,7 +89,7 @@ fields:
             condition: checked
             action: disable
     image:
-        label: acorn.location::lang.models.general.image
+        label: acornassociated.location::lang.models.general.image
         type: mediafinder
         mode: image
         useCaption: true
@@ -102,4 +102,4 @@ fields:
     _qrcode:
         type: partial
         context: update
-        path: ~/modules/acorn/partials/_qrcode
+        path: ~/modules/acornassociated/partials/_qrcode

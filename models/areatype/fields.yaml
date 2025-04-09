@@ -4,10 +4,10 @@
 
 fields:
     name:
-        label: acorn.location::lang.models.general.name
+        label: acornassociated.location::lang.models.general.name
         type: text
         searchable: true
     _qrcode:
         type: partial
         context: update
-        path: ~/modules/acorn/partials/_qrcode
+        path: ~/modules/acornassociated/partials/_qrcode

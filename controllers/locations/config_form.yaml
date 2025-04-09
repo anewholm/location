@@ -1,10 +1,10 @@
 name: Location
-form: $/acorn/location/models/location/fields.yaml
-modelClass: Acorn\Location\Models\Location
-defaultRedirect: acorn/location/locations
+form: $/acornassociated/location/models/location/fields.yaml
+modelClass: AcornAssociated\Location\Models\Location
+defaultRedirect: acornassociated/location/locations
 create:
-    redirect: 'acorn/location/locations/update/:id'
-    redirectClose: acorn/location/locations
+    redirect: 'acornassociated/location/locations/update/:id'
+    redirectClose: acornassociated/location/locations
 update:
-    redirect: acorn/location/locations
-    redirectClose: acorn/location/locations
+    redirect: acornassociated/location/locations
+    redirectClose: acornassociated/location/locations

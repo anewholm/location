@@ -4,52 +4,52 @@
 
 columns:
     id:
-        label: acorn.location::lang.models.general.id
+        label: acornassociated.location::lang.models.general.id
         type: number
         searchable: false
         sortable: true
     number:
-        label: acorn.location::lang.models.address.number
+        label: acornassociated.location::lang.models.address.number
         type: number
     name:
-        label: acorn.location::lang.models.address.street
+        label: acornassociated.location::lang.models.address.street
         type: text 
         searchable: true
     area:
-        label: acorn.location::lang.models.area.label
+        label: acornassociated.location::lang.models.area.label
         relation: area
         type: number
         select: id
         searchable: true
         sortable: true
     gps:
-        label: acorn.location::lang.models.gps.label
+        label: acornassociated.location::lang.models.gps.label
         relation: gps
         type: number
         select: id
         searchable: true
         sortable: true
     server:
-        label: acorn.location::lang.models.server.label
+        label: acornassociated.location::lang.models.server.label
         relation: server
         type: number
         select: id
         searchable: true
         sortable: true
     version:
-        label: acorn.location::lang.models.version.label
+        label: acornassociated.location::lang.models.version.label
         type: number
         searchable: false
     is_current_version:
-        label: acorn.location::lang.models.address.is_current_version
+        label: acornassociated.location::lang.models.address.is_current_version
         type: switch
     created_at:
-        label: acorn.location::lang.models.general.created_at
+        label: acornassociated.location::lang.models.general.created_at
         type: datetime
         searchable: true
         sortable: true
         invisible: true
     _qrcode:
         type: partial
-        path: ~/modules/acorn/partials/_qrcode
+        path: ~/modules/acornassociated/partials/_qrcode
         sortable: false

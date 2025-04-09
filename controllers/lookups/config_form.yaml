@@ -3,28 +3,28 @@
 # ===================================
 
 # Record name
-name: 'acorn.location::lang.models.lookup.label'
+name: 'acornassociated.location::lang.models.lookup.label'
 
 # Model Form Field configuration
-form: $/acorn/location/models/lookup/fields.yaml
+form: $/acornassociated/location/models/lookup/fields.yaml
 
 # Model Class name
-modelClass: Acorn\Location\Models\Lookup
+modelClass: AcornAssociated\Location\Models\Lookup
 
 # Default redirect location
-defaultRedirect: acorn/location/lookups
+defaultRedirect: acornassociated/location/lookups
 
 # Create page
 create:
     title: backend::lang.form.create_title
-    redirect: acorn/location/lookups/update/:id
-    redirectClose: acorn/location/lookups
+    redirect: acornassociated/location/lookups/update/:id
+    redirectClose: acornassociated/location/lookups
 
 # Update page
 update:
     title: backend::lang.form.update_title
-    redirect: acorn/location/lookups
-    redirectClose: acorn/location/lookups
+    redirect: acornassociated/location/lookups
+    redirectClose: acornassociated/location/lookups
 
 # Preview page
 preview:
