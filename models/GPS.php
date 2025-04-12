@@ -78,12 +78,12 @@ class GPS extends Model
     public $attachOne = [];
     public $attachMany = [];
 
-    public function getNameAttribute()
+    public function getNameAttribute(): string
     {
         return "$this->longitude, $this->latitude";
     }
 
-    public function name()
+    public function name(): string
     {
         return $this->name;
     }
