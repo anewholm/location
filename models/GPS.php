@@ -83,11 +83,6 @@ class GPS extends Model
         return "$this->longitude, $this->latitude";
     }
 
-    public function name(): string
-    {
-        return $this->name;
-    }
-
     public static function menuitemCount()
     {
         return self::all()->count();
