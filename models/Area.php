@@ -97,6 +97,6 @@ class Area extends Model
 
     public static function menuitemCount()
     {
-        return self::all()->count();
+        return self::count();
     }
 }
