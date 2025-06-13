@@ -1,7 +1,9 @@
 <?php namespace Acorn\Location;
 
 use System\Classes\PluginBase;
+use Acorn\User\Models\User;
 use Acorn\User\Models\UserGroup;
+use Acorn\User\Controllers\Users;
 use Acorn\User\Controllers\UserGroups;
 use Acorn\Location\Models\Location;
 
@@ -15,6 +17,38 @@ class Plugin extends PluginBase
 
     public function boot()
     {
+        // ------------------------------------------------ User location
+        User::extend(function ($model){
+            $model->belongsTo['location'] = Location::class;
+        });
+
+        Users::extendFormFields(function ($form, $model, $context) {
+            if ($model instanceof User) {
+                $form->addFields([
+                    'location' => [
+                        'label'       => 'acorn.location::lang.models.location.label',
+                        'span'        => 'auto',
+                        'type'        => 'relation',
+                        'placeholder' => 'backend::lang.form.select',
+                    ],
+                ]);
+            }
+        });
+
+        Users::extendListColumns(function ($list, $model) {
+            if ($model instanceof User) {
+                $list->addColumns([
+                    'location' => [
+                        'type'     => 'text',
+                        'relation' => 'location',
+                        'select'   => 'name',
+                        'sortable' => true,
+                    ],
+                ]);
+            }
+        });
+
+        // ------------------------------------------------ UserGroup location
         UserGroup::extend(function ($model){
             $model->belongsTo['location'] = Location::class;
         });

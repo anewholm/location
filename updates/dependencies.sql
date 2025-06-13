@@ -7,6 +7,15 @@ ALTER TABLE ONLY public.acorn_user_user_groups
         ON DELETE SET NULL
         NOT VALID;
 
+-- Changes to Acorn.User Users to add facility (location)
+ALTER TABLE IF EXISTS public.acorn_user_users
+    ADD COLUMN location_id uuid;
+
+ALTER TABLE ONLY public.acorn_user_users
+    ADD CONSTRAINT location_id FOREIGN KEY (location_id) REFERENCES public.acorn_location_locations(id) 
+        ON DELETE SET NULL
+        NOT VALID;
+
 -- Changes to Acorn Servers to add facility (location)
 ALTER TABLE IF EXISTS public.acorn_servers
     ADD COLUMN location_id uuid;
