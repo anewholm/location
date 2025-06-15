@@ -62,6 +62,8 @@ ALTER TABLE IF EXISTS ONLY public.acorn_location_areas DROP CONSTRAINT IF EXISTS
 ALTER TABLE IF EXISTS ONLY public.acorn_location_area_types DROP CONSTRAINT IF EXISTS location_area_types_pkey;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_addresses DROP CONSTRAINT IF EXISTS location_addresses_pkey;
 ALTER TABLE IF EXISTS ONLY public.acorn_location_lookup DROP CONSTRAINT IF EXISTS acorn_location_location_pkey;
+DROP TABLE IF EXISTS public.acorn_location_user_address;
+DROP TABLE IF EXISTS public.acorn_location_user_group_location;
 DROP TABLE IF EXISTS public.acorn_location_types;
 DROP TABLE IF EXISTS public.acorn_location_lookup;
 DROP TABLE IF EXISTS public.acorn_location_locations;
@@ -197,6 +199,48 @@ CREATE TABLE public.acorn_location_types (
 );
 
 
+CREATE TABLE IF NOT EXISTS public.acorn_location_user_address
+(
+    user_id uuid NOT NULL,
+    address_id uuid NOT NULL,
+    current boolean NOT NULL DEFAULT true
+);
+
+CREATE TABLE IF NOT EXISTS public.acorn_location_user_group_location
+(
+    user_group_id uuid NOT NULL,
+    location_id uuid NOT NULL,
+    current boolean NOT NULL DEFAULT true
+);
+
+ALTER TABLE ONLY public.acorn_location_user_address
+    ADD CONSTRAINT location_id FOREIGN KEY (location_id)
+        REFERENCES public.acorn_location_locations (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE SET NULL
+        NOT VALID;
+
+ALTER TABLE ONLY public.acorn_location_user_address
+    ADD CONSTRAINT user_group_id FOREIGN KEY (user_group_id)
+        REFERENCES public.acorn_user_user_groups (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE CASCADE
+        NOT VALID;
+
+ALTER TABLE IF EXISTS public.acorn_location_user_address
+    ADD CONSTRAINT user_id FOREIGN KEY (user_id)
+    REFERENCES public.acorn_user_users (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE CASCADE
+    NOT VALID;
+
+ALTER TABLE IF EXISTS public.acorn_location_user_address
+    ADD CONSTRAINT address_id FOREIGN KEY (address_id)
+    REFERENCES public.acorn_location_addresses (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+    
 --
 -- Name: acorn_location_lookup acorn_location_location_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --

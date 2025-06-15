@@ -13,27 +13,6 @@ fields:
         label: acorn.location::lang.models.address.street
         type: text
         span: auto
-    gps:
-        label: acorn.location::lang.models.gps.label
-        relation: gps
-        type: number
-        select: id
-        searchable: true
-        sortable: true
-    server:
-        label: acorn.location::lang.models.address.server
-        relation: server
-        type: number
-        select: id
-        searchable: true
-        sortable: true
-    version:
-        label: acorn.location::lang.models.address.version
-        type: number
-        searchable: false
-    is_current_version:
-        label: acorn.location::lang.models.address.is_current_version
-        type: switch
     _gps_longitude:
         label: acorn.location::lang.models.address.longitude
         type: number

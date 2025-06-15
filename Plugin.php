@@ -6,6 +6,7 @@ use Acorn\User\Models\UserGroup;
 use Acorn\User\Controllers\Users;
 use Acorn\User\Controllers\UserGroups;
 use Acorn\Location\Models\Location;
+use Acorn\Location\Models\Address;
 
 class Plugin extends PluginBase
 {
@@ -19,17 +20,19 @@ class Plugin extends PluginBase
     {
         // ------------------------------------------------ User location
         User::extend(function ($model){
-            $model->belongsTo['location'] = Location::class;
+            $model->belongsToMany['addresses'] = [
+                Address::class,
+                'table' => 'acorn_location_user_address'
+            ];
         });
 
         Users::extendFormFields(function ($form, $model, $context) {
             if ($model instanceof User) {
                 $form->addFields([
-                    'location' => [
-                        'label'       => 'acorn.location::lang.models.location.label',
+                    'addresses' => [
+                        'label'       => 'acorn.location::lang.models.address.label_plural',
                         'span'        => 'auto',
-                        'type'        => 'relation',
-                        'placeholder' => 'backend::lang.form.select',
+                        'type'        => 'relationmanager',
                     ],
                 ]);
             }
@@ -38,10 +41,10 @@ class Plugin extends PluginBase
         Users::extendListColumns(function ($list, $model) {
             if ($model instanceof User) {
                 $list->addColumns([
-                    'location' => [
-                        'type'     => 'text',
-                        'relation' => 'location',
-                        'select'   => 'name',
+                    'addresses' => [
+                        'type'     => 'partial',
+                        'path'     => 'multi',
+                        'relation' => 'addresses',
                         'sortable' => true,
                     ],
                 ]);
@@ -50,17 +53,19 @@ class Plugin extends PluginBase
 
         // ------------------------------------------------ UserGroup location
         UserGroup::extend(function ($model){
-            $model->belongsTo['location'] = Location::class;
+            $model->belongsToMany['locations'] = [
+                Location::class,
+                'table' => 'acorn_location_user_group_location'
+            ];
         });
 
         UserGroups::extendFormFields(function ($form, $model, $context) {
             if ($model instanceof UserGroup) {
                 $form->addFields([
-                    'location' => [
-                        'label'       => 'acorn.location::lang.models.location.label',
+                    'locations' => [
+                        'label'       => 'acorn.location::lang.models.location.label_plural',
                         'span'        => 'auto',
-                        'type'        => 'relation',
-                        'placeholder' => 'backend::lang.form.select',
+                        'type'        => 'relationmanager',
                     ],
                 ]);
             }
@@ -69,10 +74,10 @@ class Plugin extends PluginBase
         UserGroups::extendListColumns(function ($list, $model) {
             if ($model instanceof UserGroup) {
                 $list->addColumns([
-                    'location' => [
-                        'type'     => 'text',
-                        'relation' => 'location',
-                        'select'   => 'name',
+                    'locations' => [
+                        'type'     => 'partial',
+                        'path'     => 'multi',
+                        'relation' => 'locations',
                         'sortable' => true,
                     ],
                 ]);

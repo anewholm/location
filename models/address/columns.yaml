@@ -32,24 +32,26 @@ columns:
     server:
         label: acorn.location::lang.models.server.label
         relation: server
-        type: number
-        select: id
-        searchable: true
-        sortable: true
+        invisible: true
+        searchable: false
+        sortable: false
     version:
         label: acorn.location::lang.models.version.label
         type: number
+        invisible: true
         searchable: false
     is_current_version:
         label: acorn.location::lang.models.address.is_current_version
         type: switch
+        invisible: true
     created_at:
         label: acorn.location::lang.models.general.created_at
         type: datetime
-        searchable: true
+        searchable: false
         sortable: true
         invisible: true
     _qrcode:
         type: partial
         path: ~/modules/acorn/partials/_qrcode
         sortable: false
+        invisible: true
