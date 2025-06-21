@@ -91,7 +91,8 @@ CREATE TABLE public.acorn_location_addresses (
     created_by_user_id uuid,
     created_at timestamp without time zone DEFAULT now() NOT NULL,
     response text,
-    lookup_id uuid
+    lookup_id uuid,
+    import_source text
 );
 
 
@@ -126,7 +127,8 @@ CREATE TABLE public.acorn_location_areas (
     is_current_version boolean DEFAULT true NOT NULL,
     created_at timestamp without time zone DEFAULT now() NOT NULL,
     created_by_user_id uuid,
-    response text
+    response text,
+    import_source text
 );
 
 
@@ -159,7 +161,8 @@ CREATE TABLE public.acorn_location_locations (
     created_at timestamp without time zone DEFAULT now() NOT NULL,
     created_by_user_id uuid,
     response text,
-    type_id uuid
+    type_id uuid,
+    import_source text
 );
 
 
@@ -240,6 +243,12 @@ ALTER TABLE IF EXISTS public.acorn_location_user_address
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
+
+ALTER TABLE IF EXISTS public.acorn_location_areas
+    ADD CONSTRAINT area_area_type UNIQUE (name, area_type_id);
+    
+ALTER TABLE IF EXISTS public.acorn_location_area_types
+    ADD CONSTRAINT name UNIQUE (name);
     
 --
 -- Name: acorn_location_lookup acorn_location_location_pkey; Type: CONSTRAINT; Schema: public; Owner: -
@@ -297,6 +306,9 @@ ALTER TABLE ONLY public.acorn_location_types
     ADD CONSTRAINT location_types_pkey PRIMARY KEY (id);
 
 
+ALTER TABLE IF EXISTS public.acorn_location_types
+    ADD CONSTRAINT location_type_name_unique UNIQUE (name);
+    
 --
 -- Name: dr_acorn_location_addresses_replica_identity; Type: INDEX; Schema: public; Owner: -
 --
