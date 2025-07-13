@@ -65,7 +65,7 @@ class Plugin extends PluginBase
                     'locations' => [
                         'label'       => 'acorn.location::lang.models.location.label_plural',
                         'span'        => 'auto',
-                        'type'        => 'relationmanager',
+                        'type'        => 'relation',
                     ],
                 ]);
             }
