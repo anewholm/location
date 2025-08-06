@@ -28,11 +28,12 @@ class Plugin extends PluginBase
 
         Users::extendFormFields(function ($form, $model, $context) {
             if ($model instanceof User) {
-                $form->addFields([
+                $form->addTabFields([
                     'addresses' => [
                         'label'       => 'acorn.location::lang.models.address.label_plural',
                         'span'        => 'auto',
-                        'type'        => 'relationmanager',
+                        'type'        => 'relation', // TODO: relationmanager not working for some reasons
+                        'tab'         => 'acorn.location::lang.models.address.label_plural',
                     ],
                 ]);
             }
