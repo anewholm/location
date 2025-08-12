@@ -31,8 +31,9 @@ class Plugin extends PluginBase
                 $form->addTabFields([
                     'addresses' => [
                         'label'       => 'acorn.location::lang.models.address.label_plural',
-                        'span'        => 'auto',
-                        'type'        => 'relation', // TODO: relationmanager not working for some reasons
+                        'span'        => 'storm',
+                        'type'        => 'relationmanager',
+                        'cssClass'    => 'nolabel col-xs-12',
                         'tab'         => 'acorn.location::lang.models.address.label_plural',
                     ],
                 ]);
