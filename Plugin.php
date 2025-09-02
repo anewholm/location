@@ -44,6 +44,7 @@ class Plugin extends PluginBase
             if ($model instanceof User) {
                 $list->addColumns([
                     'addresses' => [
+                        'label'    => 'acorn.location::lang.models.address.label_plural',
                         'type'     => 'partial',
                         'path'     => 'multi',
                         'relation' => 'addresses',
@@ -77,6 +78,7 @@ class Plugin extends PluginBase
             if ($model instanceof UserGroup) {
                 $list->addColumns([
                     'locations' => [
+                        'label'    => 'acorn.location::lang.models.location.label_plural',
                         'type'     => 'partial',
                         'path'     => 'multi',
                         'relation' => 'locations',

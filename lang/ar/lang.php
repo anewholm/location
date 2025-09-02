@@ -1,80 +1,83 @@
-<?php
-
-return [
+<?php return [
     'plugin' => [
-        'name' => 'مرافق',
-        'description' => 'Saved facilities',
-        'api_key_required' => 'مفتاح API الخاص بـ Google مطلوب للبحث عن عنوان Google',
+        'name' => 'المرافق',
+        'description' => 'مرفق محفوظ',
+        'api_key_required' => 'مطلوب مفتاح API من Google للبحث عن العنوان في Google'
     ],
     'permissions' => [
-        'manage_locations' => 'إدارة المواقع',
+        'manage_locations' => 'إدارة المرافق'
     ],
     'models' => [
         'general' => [
             'id' => 'المعرف',
-            'name' => 'الأسم',
+            'name' => 'الاسم',
             'type' => 'النوع',
-            'image' => 'الصور',
-            'select' => 'إختيار',
-            'created_at' => 'تم التسجيل في',
-            'updated_at' => 'تم التحديث في',
-
+            'image' => 'الصورة',
+            'select' => 'اختر',
+            'created_at' => 'تاريخ الإنشاء',
+            'updated_at' => 'تاريخ التحديث',
             'user_group' => 'المجموعة',
-            'user' => 'المستخدم',
-            'from_user_group' => 'من المجموعة',
+            'user' => 'الشخص',
+            'from_user_group' => 'من المجموعة'
+        ],
+        'settings' => [
+            'label' => 'إعداد الموقع',
+            'label_plural' => 'إعدادات المواقع',
+            'label_short_plural' => 'الإعدادات',
+            'description' => 'إدارة الإعدادات المعتمدة على الموقع',
+            'google_address_lookup' => 'البحث عن العنوان عبر Google',
+            'google_address_lookup_comment' => 'يتطلب <a href="/backend/system/settings/update/winter/location/settings#primarytab-winterlocationlangsettingscredentials-tab">مفتاح API</a>'
         ],
         'location' => [
-            'label' => 'الموقع',
-            'label_plural' => 'المواقع',
+            'label' => 'المرفق',
+            'label_plural' => 'المرافق',
             'create_area' => 'إنشاء منطقة >>',
-            'add_gps' => 'Set GPS >>',
-            'initial_location' => 'الموقع الأولي',
+            'add_gps' => 'تعيين GPS >>',
+            'initial_location' => 'الموقع الأولي'
         ],
         'type' => [
-            'label' => 'Type',
-            'label_plural' => 'Types',
-            'parent' => 'Parent Type',
+            'label' => 'النوع',
+            'label_plural' => 'الأنواع',
+            'parent' => 'النوع الرئيسي'
         ],
         'lookup' => [
-            'label' => 'Lookup',
-            'label_plural' => 'Lookups',
-            'address' => 'Address',
-
-            'google_address' => 'البحث على خرائط جوجل',
-
-            'vicinity' => 'Vicinity',
-            'city' => 'مدينة',
-            'postalcode' => 'Postal Code',
-            'zip' => 'Postal Code',
-            'country_code' => 'Country code',
-            'state_code' => 'State code',
+            'label' => 'البحث',
+            'label_plural' => 'البحوث',
+            'address' => 'العنوان',
+            'google_address' => 'البحث في خرائط Google',
+            'vicinity' => 'الجوار',
+            'city' => 'المدينة',
+            'postalcode' => 'الرمز البريدي',
+            'zip' => 'الرمز البريدي',
+            'country_code' => 'رمز الدولة',
+            'state_code' => 'رمز الولاية',
             'latitude' => 'خط العرض',
-            'longitude' => 'خط الطول',
+            'longitude' => 'خط الطول'
         ],
         'area' => [
-            'label' => 'منطقة',
-            'label_plural' => 'مناطق',
-            'parent' => 'محتوى المنطقة',
+            'label' => 'المنطقة',
+            'label_plural' => 'المناطق',
+            'parent' => 'المنطقة المحتوية'
         ],
         'address' => [
             'label' => 'العنوان',
-            'label_plural' => 'العناوين',
+            'label_plural' => 'عناوين المستخدم',
             'number' => 'الرقم',
             'street' => 'الشارع',
-            'longitude' => 'خط الطول',
             'latitude' => 'خط العرض',
+            'longitude' => 'خط الطول',
             'auto_location' => 'إنشاء موقع مرتبط',
-            'select_existing' => 'حدد عنوانًا موجودًا',
+            'select_existing' => 'اختر عنوانًا موجودًا'
         ],
         'gps' => [
-            'label' => 'موقع الخريط',
-            'label_plural' => 'موقع الخرائط',
+            'label' => 'GPS',
+            'label_plural' => 'أجهزة GPS',
             'longitude' => 'خط الطول',
-            'latitude' => 'خط العرض',
+            'latitude' => 'خط العرض'
         ],
         'areatype' => [
             'label' => 'نوع المنطقة',
-            'label_plural' => 'أنواع المناطق',
-        ],
-    ],
+            'label_plural' => 'أنواع المناطق'
+        ]
+    ]
 ];
