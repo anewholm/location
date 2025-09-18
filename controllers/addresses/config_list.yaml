@@ -12,7 +12,7 @@ modelClass: Acorn\Location\Models\Address
 title: acorn.location::lang.models.address.label_plural
 
 # Link URL for each record
-recordUrl: acorn/locations/addresses/update/:id
+recordUrl: acorn/location/addresses/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

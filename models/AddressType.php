@@ -4,21 +4,18 @@ namespace Acorn\Location\Models;
 
 use Acorn\Model;
 use Acorn\Models\Server;
-use Acorn\Collection;
 
 /**
- * Area Model
+ * AreaType Model
  */
-class Area extends Model
+class AddressType extends Model
 {
-    use \Illuminate\Database\Eloquent\Concerns\HasUuids;
     use \Winter\Storm\Database\Traits\Validation;
-    use \Winter\Storm\Database\Traits\NestedTree;
 
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'acorn_location_areas';
+    public $table = 'acorn_location_address_types';
 
     /**
      * @var array Guarded fields
@@ -65,17 +62,11 @@ class Area extends Model
      * @var array Relations
      */
     public $hasOne = [];
-    public $hasMany = [
-        'children' => [Area::class,    'key' => 'parent_id'],
-        'address'  => [Address::class, 'key' => 'area_id'],
-    ];
+    public $hasMany = [];
     public $hasOneThrough = [];
     public $hasManyThrough = [];
     public $belongsTo = [
-        'parent' => Area::class,
-        'area_type' => AreaType::class,
-        'gps' => GPS::class,
-        'server' => server::class,
+         'server' => Server::class,
     ];
     public $belongsToMany = [];
     public $morphTo = [];
@@ -83,18 +74,6 @@ class Area extends Model
     public $morphMany = [];
     public $attachOne = [];
     public $attachMany = [];
-
-    protected function getFullyQualifiedNameAttribute()
-    {
-        $this->load('parent');
-        $parentAreaFQName = ($this->parent ? $this->parent->fullyQualifiedName() . '/' : '');
-        return "$parentAreaFQName$this->name";
-    }
-
-    public function fullyQualifiedName()
-    {
-        return $this->fully_qualified_name;
-    }
 
     public static function menuitemCount()
     {

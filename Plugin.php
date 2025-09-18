@@ -6,7 +6,7 @@ use Acorn\User\Models\UserGroup;
 use Acorn\User\Controllers\Users;
 use Acorn\User\Controllers\UserGroups;
 use Acorn\Location\Models\Location;
-use Acorn\Location\Models\Address;
+use Acorn\Location\Models\UserAddress;
 
 class Plugin extends PluginBase
 {
@@ -20,16 +20,16 @@ class Plugin extends PluginBase
     {
         // ------------------------------------------------ User location
         User::extend(function ($model){
-            $model->belongsToMany['addresses'] = [
-                Address::class,
-                'table' => 'acorn_location_user_address'
+            $model->hasMany['user_addresses'] = [
+                UserAddress::class,
+                'table' => 'acorn_location_user_addresses'
             ];
         });
 
         Users::extendFormFields(function ($form, $model, $context) {
             if ($model instanceof User) {
                 $form->addTabFields([
-                    'addresses' => [
+                    'user_addresses' => [
                         'label'       => 'acorn.location::lang.models.address.label_plural',
                         'span'        => 'storm',
                         'type'        => 'relationmanager',
@@ -43,12 +43,13 @@ class Plugin extends PluginBase
         Users::extendListColumns(function ($list, $model) {
             if ($model instanceof User) {
                 $list->addColumns([
-                    'addresses' => [
-                        'label'    => 'acorn.location::lang.models.address.label_plural',
-                        'type'     => 'partial',
-                        'path'     => 'multi',
-                        'relation' => 'addresses',
-                        'sortable' => true,
+                    'user_addresses' => [
+                        'label'     => 'acorn.location::lang.models.address.label_plural',
+                        'type'      => 'partial',
+                        'path'      => 'multi',
+                        'relation'  => 'user_addresses',
+                        'valueFrom' => 'name',
+                        'sortable'  => true,
                     ],
                 ]);
             }
@@ -104,4 +105,54 @@ class Plugin extends PluginBase
             ]
         ];
     }
+
+    public function registerPermissions() 
+    {
+        return [
+            'acorn.location.location_create' => [
+                'tab' => 'acorn.location::lang.plugin.name',
+                'label' => 'acorn.location::lang.permissions.location_create'
+            ],
+            'acorn.location.location_delete' => [
+                'tab' => 'acorn.location::lang.plugin.name',
+                'label' => 'acorn.location::lang.permissions.location_delete'
+            ],
+
+            'acorn.location.area_create' => [
+                'tab' => 'acorn.location::lang.plugin.name',
+                'label' => 'acorn.location::lang.permissions.area_create'
+            ],
+            'acorn.location.area_delete' => [
+                'tab' => 'acorn.location::lang.plugin.name',
+                'label' => 'acorn.location::lang.permissions.area_delete'
+            ],
+            
+            'acorn.location.areatype_create' => [
+                'tab' => 'acorn.location::lang.plugin.name',
+                'label' => 'acorn.location::lang.permissions.areatype_create'
+            ],
+            'acorn.location.areatype_delete' => [
+                'tab' => 'acorn.location::lang.plugin.name',
+                'label' => 'acorn.location::lang.permissions.areatype_delete'
+            ],
+
+            'acorn.location.address_create' => [
+                'tab' => 'acorn.location::lang.plugin.name',
+                'label' => 'acorn.location::lang.permissions.address_create'
+            ],
+            'acorn.location.address_delete' => [
+                'tab' => 'acorn.location::lang.plugin.name',
+                'label' => 'acorn.location::lang.permissions.address_delete'
+            ],
+
+            'acorn.location.addresstype_create' => [
+                'tab' => 'acorn.location::lang.plugin.name',
+                'label' => 'acorn.location::lang.permissions.addresstype_create'
+            ],
+            'acorn.location.addresstype_delete' => [
+                'tab' => 'acorn.location::lang.plugin.name',
+                'label' => 'acorn.location::lang.permissions.addresstype_delete'
+            ],
+        ];
+    }    
 }

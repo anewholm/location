@@ -30,3 +30,4 @@ columns:
         type: partial
         path: ~/modules/acorn/partials/_qrcode
         sortable: false
+        invisible: true

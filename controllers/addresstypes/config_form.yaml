@@ -3,28 +3,28 @@
 # ===================================
 
 # Record name
-name: acorn.location::lang.models.areatype.label
+name: acorn.location::lang.models.addresstype.label
 
 # Model Form Field configuration
-form: $/acorn/location/models/areatype/fields.yaml
+form: $/acorn/location/models/addresstype/fields.yaml
 
 # Model Class name
-modelClass: Acorn\Location\Models\AreaType
+modelClass: Acorn\Location\Models\AddressType
 
 # Default redirect location
-defaultRedirect: acorn/location/areatypes
+defaultRedirect: acorn/location/addresstypes
 
 # Create page
 create:
     title: backend::lang.form.create_title
-    redirect: acorn/location/areatypes/update/:id
-    redirectClose: acorn/location/areatypes
+    redirect: acorn/location/addresstypes/update/:id
+    redirectClose: acorn/location/addresstypes
 
 # Update page
 update:
     title: backend::lang.form.update_title
-    redirect: acorn/location/areatypes
-    redirectClose: acorn/location/areatypes
+    redirect: acorn/location/addresstypes
+    redirectClose: acorn/location/addresstypes
 
 # Preview page
 preview:

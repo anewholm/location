@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('acorn/locations/gps') ?>"><?= e(trans('acorn.location::lang.models.gps.label_plural')); ?></a></li>
+        <li><a href="<?= Backend::url('acorn/location/gps') ?>"><?= e(trans('acorn.location::lang.models.gps.label_plural')); ?></a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -14,6 +14,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('acorn/locations/gps') ?>" class="btn btn-default"><?= e(trans('backend::lang.form.return_to_list')); ?></a></p>
+    <p><a href="<?= Backend::url('acorn/location/gps') ?>" class="btn btn-default"><?= e(trans('backend::lang.form.return_to_list')); ?></a></p>
 
 <?php endif ?>

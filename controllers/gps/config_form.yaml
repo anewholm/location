@@ -12,19 +12,19 @@ form: $/acorn/location/models/gp/fields.yaml
 modelClass: Acorn\Location\Models\GP
 
 # Default redirect location
-defaultRedirect: acorn/locations/gps
+defaultRedirect: acorn/location/gps
 
 # Create page
 create:
     title: backend::lang.form.create_title
-    redirect: acorn/locations/gps/update/:id
-    redirectClose: acorn/locations/gps
+    redirect: acorn/location/gps/update/:id
+    redirectClose: acorn/location/gps
 
 # Update page
 update:
     title: backend::lang.form.update_title
-    redirect: acorn/locations/gps
-    redirectClose: acorn/locations/gps
+    redirect: acorn/location/gps
+    redirectClose: acorn/location/gps
 
 # Preview page
 preview:

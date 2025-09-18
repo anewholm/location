@@ -12,19 +12,19 @@ form: $/acorn/location/models/address/fields.yaml
 modelClass: Acorn\Location\Models\Address
 
 # Default redirect location
-defaultRedirect: acorn/locations/addresses
+defaultRedirect: acorn/location/addresses
 
 # Create page
 create:
     title: backend::lang.form.create_title
-    redirect: acorn/locations/addresses/update/:id
-    redirectClose: acorn/locations/addresses
+    redirect: acorn/location/addresses/update/:id
+    redirectClose: acorn/location/addresses
 
 # Update page
 update:
     title: backend::lang.form.update_title
-    redirect: acorn/locations/addresses
-    redirectClose: acorn/locations/addresses
+    redirect: acorn/location/addresses
+    redirectClose: acorn/location/addresses
 
 # Preview page
 preview:

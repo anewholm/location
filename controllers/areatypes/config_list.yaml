@@ -12,7 +12,7 @@ modelClass: Acorn\Location\Models\AreaType
 title: acorn.location::lang.models.areatype.label_plural
 
 # Link URL for each record
-recordUrl: acorn/locations/areatypes/update/:id
+recordUrl: acorn/location/areatypes/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

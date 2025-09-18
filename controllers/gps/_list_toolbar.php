@@ -1,6 +1,6 @@
 <div data-control="toolbar">
     <a
-        href="<?= Backend::url('acorn/locations/gps/create') ?>"
+        href="<?= Backend::url('acorn/location/gps/create') ?>"
         class="btn btn-primary wn-icon-plus">
         <?= e(trans('backend::lang.form.create_title', ['name' => trans('acorn.location::lang.models.gps.label')])); ?>
     </a>

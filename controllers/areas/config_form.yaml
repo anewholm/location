@@ -12,19 +12,19 @@ form: $/acorn/location/models/area/fields.yaml
 modelClass: Acorn\Location\Models\Area
 
 # Default redirect location
-defaultRedirect: acorn/locations/areas
+defaultRedirect: acorn/location/areas
 
 # Create page
 create:
     title: backend::lang.form.create_title
-    redirect: acorn/locations/areas/update/:id
-    redirectClose: acorn/locations/areas
+    redirect: acorn/location/areas/update/:id
+    redirectClose: acorn/location/areas
 
 # Update page
 update:
     title: backend::lang.form.update_title
-    redirect: acorn/locations/areas
-    redirectClose: acorn/locations/areas
+    redirect: acorn/location/areas
+    redirectClose: acorn/location/areas
 
 # Preview page
 preview:

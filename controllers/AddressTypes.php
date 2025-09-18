@@ -4,9 +4,9 @@ use BackendMenu;
 use Acorn\Controller;
 
 /**
- * Lookups Backend Controller
+ * Area Type Backend Controller
  */
-class Lookups extends Controller
+class AddressTypes extends Controller
 {
     public $bodyClass = 'compact-container';
     public $implement = [
@@ -18,6 +18,6 @@ class Lookups extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Acorn.Location', 'location', 'lookups');
+        BackendMenu::setContext('Acorn.Location', 'locations', 'addresstypes');
     }
 }

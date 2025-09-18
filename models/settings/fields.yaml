@@ -1,7 +1,13 @@
 fields:
     google-address-lookup:
         label: acorn.location::lang.models.settings.google_address_lookup
-        default: 0
+        type: switch
+        default: false
         comment: acorn.location::lang.models.settings.google_address_lookup_comment
         commentHtml: true
-        type: checkbox
+    gps:
+        label: acorn.location::lang.models.settings.gps
+        type: switch
+        default: false
+        comment: acorn.location::lang.models.settings.gps_comment
+        commentHtml: true

@@ -18,7 +18,7 @@ columns:
         label: acorn.location::lang.models.general.server
         relation: server
         type: number
-        select: id
+        select: acorn_servers.name
         searchable: true
         sortable: true
     version:
@@ -43,3 +43,4 @@ columns:
         type: partial
         path: ~/modules/acorn/partials/_qrcode
         sortable: false
+        invisible: true

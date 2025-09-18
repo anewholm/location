@@ -20,7 +20,31 @@ navigation:
                 label: acorn.location::lang.models.location.label_plural
                 url: acorn/location/locations
                 icon: icon-building
-            types:
+            locationtypes:
                 label: acorn.location::lang.models.type.label_plural
                 url: acorn/location/types
                 icon: icon-stripe
+            _splitter_Type1:
+                label: splitter
+                url: splitter
+                icon: acorn-splitter
+            areas:
+                label: acorn.location::lang.models.area.label_plural
+                url: acorn/location/areas
+                icon: icon-shapes
+            areatypes:
+                label: acorn.location::lang.models.areatype.label_plural
+                url: acorn/location/areatypes
+                icon: icon-shapes
+            _splitter_Type2:
+                label: splitter
+                url: splitter
+                icon: acorn-splitter
+            addresses:
+                label: acorn.location::lang.models.address.label_plural
+                url: acorn/location/addresses
+                icon: icon-search-location
+            addresstypes:
+                label: acorn.location::lang.models.addresstype.label_plural
+                url: acorn/location/addresstypes
+                icon: icon-shapes

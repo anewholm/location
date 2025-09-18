@@ -5,8 +5,13 @@ use BackendMenu;
 
 class Locations extends Controller
 {
-    public $implement = [        'Acorn\Behaviors\ListController',        'Backend\Behaviors\FormController',        'Backend\Behaviors\ReorderController'    ];
-    
+    public $implement = [        
+        'Acorn\Behaviors\ListController',        
+        'Acorn\Behaviors\FormController',        
+        'Backend\Behaviors\ReorderController'    
+    ];
+
+    public $bodyClass = 'compact-container';
     public $listConfig = 'config_list.yaml';
     public $formConfig = 'config_form.yaml';
     public $reorderConfig = 'config_reorder.yaml';

@@ -14,19 +14,6 @@ columns:
         label: acorn.location::lang.models.general.name
         type: text
         searchable: true
-    area_type:
-        label: acorn.location::lang.models.areatype.label
-        relation: area_type
-        valueFrom: name
-    parent_area:
-        label: acorn.location::lang.models.area.parent
-        relation: parent
-        type: text
-        valueFrom: name
-    gps[name]:
-        label: acorn.location::lang.models.gps.label
-        type: text
-        setting: Acorn\Location\Models\Settings::gps
 
     server:
         label: acorn::lang.models.server.label

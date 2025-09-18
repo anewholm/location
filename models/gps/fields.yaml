@@ -7,24 +7,14 @@ fields:
        label: acorn.location::lang.models.address.logitude
        type: text
        span: auto
-       searchable: false
     latitude: 
        label: acorn.location::lang.models.address.latitude
        type: text
        span: auto
-       searchable: false
-    server:
-        label: acorn.location::lang.models.general.server
-        type: relation
-        select: id
-        span: auto
-        searchable: true
-        sortable: true
     version:
         label: acorn.location::lang.models.general.version
         type: number
         span: auto
-        searchable: false
     is_current_version:
         label: acorn.location::lang.models.general.is_current_version
         type: switch

@@ -9,6 +9,9 @@ begin
 	insert into acorn_location_area_types(id, name) values('8dfda3c6-3f2c-4a3a-a72a-f4e9391dd282'::uuid, 'Country') on conflict(id) do nothing;
 	insert into acorn_location_area_types(id, name) values('b3de00b7-c169-40d5-9546-4d5f5715b014'::uuid, 'Comune')  on conflict(id) do nothing;
 
+	insert into acorn_location_address_types(id, name) values('c5755550-9399-11f0-878f-976a78a3440c'::uuid, 'Birth Place')    on conflict(id) do nothing;
+	insert into acorn_location_address_types(id, name) values('c57555d2-9399-11f0-8790-6360674ea76c'::uuid, 'Home') on conflict(id) do nothing;
+
 	-- Syria & Cities
 	insert into acorn_location_areas(id, name, area_type_id, parent_area_id)
 		select 'a5ef5bf7-685d-428f-8e22-6cc61585ef53'::uuid, 'Syria', atp.id, NULL 

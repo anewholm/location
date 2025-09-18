@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('acorn/locations/addresses') ?>"><?= e(trans('acorn.location::lang.models.address.label_plural')); ?></a></li>
+        <li><a href="<?= Backend::url('acorn/location/addresses') ?>"><?= e(trans('acorn.location::lang.models.address.label_plural')); ?></a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -33,7 +33,7 @@
                     <?= e(trans('backend::lang.form.create_and_close')); ?>
                 </button>
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('acorn/locations/addresses') ?>"><?= e(trans('backend::lang.form.cancel')); ?></a>
+                    or <a href="<?= Backend::url('acorn/location/addresses') ?>"><?= e(trans('backend::lang.form.cancel')); ?></a>
                 </span>
             </div>
         </div>
@@ -43,6 +43,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('acorn/locations/addresses') ?>" class="btn btn-default"><?= e(trans('backend::lang.form.return_to_list')); ?></a></p>
+    <p><a href="<?= Backend::url('acorn/location/addresses') ?>" class="btn btn-default"><?= e(trans('backend::lang.form.return_to_list')); ?></a></p>
 
 <?php endif ?>

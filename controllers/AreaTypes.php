@@ -8,12 +8,10 @@ use Acorn\Controller;
  */
 class AreaTypes extends Controller
 {
-    /**
-     * @var array Behaviors that are implemented by this controller.
-     */
+    public $bodyClass = 'compact-container';
     public $implement = [
-        \Backend\Behaviors\FormController::class,
-        \Backend\Behaviors\ListController::class,
+        \Acorn\Behaviors\FormController::class,
+        \Acorn\Behaviors\ListController::class,
     ];
 
     public function __construct()
