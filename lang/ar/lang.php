@@ -78,6 +78,10 @@
         'areatype' => [
             'label' => 'نوع المنطقة',
             'label_plural' => 'أنواع المناطق'
-        ]
+        ],
+        'addresstype' => [
+            'label' => 'نوع العنوان',
+            'label_plural' => 'أنواع العناوين'
+        ],
     ]
 ];

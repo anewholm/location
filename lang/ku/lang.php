@@ -78,6 +78,10 @@
         'areatype' => [
             'label' => 'Cureya Qada',
             'label_plural' => 'Cureyan Qada'
-        ]
+        ],
+        'addresstype' => [
+            'label' => 'Cureyê navnîşanê',
+            'label_plural' => 'Cureyên navnîşanê'
+        ],
     ]
 ];
