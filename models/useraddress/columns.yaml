@@ -12,10 +12,10 @@ columns:
 
     address[number]:
         label: acorn.location::lang.models.address.number
-        searchable: true
+        searchable: false
         sortable: true
     address[name]:
-        label: acorn.location::lang.models.address.number
+        label: acorn.location::lang.models.address.street
         searchable: true
         sortable: true
     address[area][name]:
