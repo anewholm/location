@@ -18,6 +18,6 @@ class AreaTypes extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Acorn.Location', 'locations', 'areatypes');
+        BackendMenu::setContext('Acorn.Location', 'location', 'areatypes');
     }
 }

@@ -83,8 +83,8 @@ class GPS extends Model
         return "$this->longitude, $this->latitude";
     }
 
-    public static function menuitemCount()
-    {
-        return self::count();
+    public static function menuitemCount(): mixed {
+        # Auto-injected by acorn-create-system
+        return Model::menuitemCountFor(self::class);
     }
 }

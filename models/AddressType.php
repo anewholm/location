@@ -75,8 +75,8 @@ class AddressType extends Model
     public $attachOne = [];
     public $attachMany = [];
 
-    public static function menuitemCount()
-    {
-        return self::count();
+    public static function menuitemCount(): mixed {
+        # Auto-injected by acorn-create-system
+        return Model::menuitemCountFor(self::class);
     }
 }

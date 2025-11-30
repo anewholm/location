@@ -1,50 +1,58 @@
 plugin:
-    name: acorn.location::lang.plugin.name
-    description: acorn.location::lang.plugin.description
-    author: 'Acorn'
-    icon: wn-building
-    replaces: {  }
+  name: acorn.location::lang.plugin.name
+  description: acorn.location::lang.plugin.description
+  author: 'Acorn'
+  icon: wn-building
 permissions:
-    acorn_location:
-        label: acorn.location::lang.permissions.manage_locations
-        tab: acorn.location::lang.plugin.name
+  acorn_location:
+    label: acorn.location::lang.permissions.manage_locations
+    tab: acorn.location::lang.plugin.name
 navigation:
-    location-main-menu-item:
-        label: acorn.location::lang.plugin.name
+  location:
+    label: acorn.location::lang.plugin.name
+    url: acorn/location/locations
+    icon: icon-building
+    permissions:
+      - acorn_location
+
+    sideMenu:
+      locations:
+        label: acorn.location::lang.models.location.label_plural
         url: acorn/location/locations
         icon: icon-building
+        counter: \Acorn\Location\Models\Location::menuitemCount
         permissions:
-            - acorn_location
-        sideMenu:
-            facilities:
-                label: acorn.location::lang.models.location.label_plural
-                url: acorn/location/locations
-                icon: icon-building
-            locationtypes:
-                label: acorn.location::lang.models.type.label_plural
-                url: acorn/location/types
-                icon: icon-stripe
-            _splitter_Type1:
-                label: splitter
-                url: splitter
-                icon: acorn-splitter
-            areas:
-                label: acorn.location::lang.models.area.label_plural
-                url: acorn/location/areas
-                icon: icon-shapes
-            areatypes:
-                label: acorn.location::lang.models.areatype.label_plural
-                url: acorn/location/areatypes
-                icon: icon-shapes
-            _splitter_Type2:
-                label: splitter
-                url: splitter
-                icon: acorn-splitter
-            addresses:
-                label: acorn.location::lang.models.address.label_plural
-                url: acorn/location/addresses
-                icon: icon-search-location
-            addresstypes:
-                label: acorn.location::lang.models.addresstype.label_plural
-                url: acorn/location/addresstypes
-                icon: icon-shapes
+          - acorn_location
+      types:
+        label: acorn.location::lang.models.type.label_plural
+        url: acorn/location/types
+        icon: icon-stripe
+        counter: \Acorn\Location\Models\Type::menuitemCount
+      _splitter_Type1:
+        label: splitter
+        url: splitter
+        icon: acorn-splitter
+      areas:
+        label: acorn.location::lang.models.area.label_plural
+        url: acorn/location/areas
+        icon: icon-shapes
+        counter: \Acorn\Location\Models\Area::menuitemCount
+      areatypes:
+        label: acorn.location::lang.models.areatype.label_plural
+        url: acorn/location/areatypes
+        icon: icon-shapes
+        counter: \Acorn\Location\Models\AreaType::menuitemCount
+      _splitter_Type2:
+        label: splitter
+        url: splitter
+        icon: acorn-splitter
+      addresses:
+        label: acorn.location::lang.models.address.label_plural
+        url: acorn/location/addresses
+        icon: icon-search-location
+        counter: \Acorn\Location\Models\Address::menuitemCount
+      addresstypes:
+        label: acorn.location::lang.models.addresstype.label_plural
+        url: acorn/location/addresstypes
+        icon: icon-shapes
+        counter: \Acorn\Location\Models\AddressType::menuitemCount

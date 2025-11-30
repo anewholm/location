@@ -18,6 +18,6 @@ class AddressTypes extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Acorn.Location', 'locations', 'addresstypes');
+        BackendMenu::setContext('Acorn.Location', 'location', 'addresstypes');
     }
 }

@@ -18,6 +18,6 @@ class Areas extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Acorn.Location', 'locations', 'areas');
+        BackendMenu::setContext('Acorn.Location', 'location', 'areas');
     }
 }

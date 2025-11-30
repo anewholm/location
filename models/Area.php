@@ -96,8 +96,8 @@ class Area extends Model
         return $this->fully_qualified_name;
     }
 
-    public static function menuitemCount()
-    {
-        return self::count();
+    public static function menuitemCount(): mixed {
+        # Auto-injected by acorn-create-system
+        return Model::menuitemCountFor(self::class);
     }
 }

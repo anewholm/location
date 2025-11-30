@@ -48,4 +48,9 @@ class Location extends Model
      * @var array Attribute names to encode and decode using JSON.
      */
     public $jsonable = [];
+
+    public static function menuitemCount(): mixed {
+        # Auto-injected by acorn-create-system
+        return Model::menuitemCountFor(self::class);
+    }
 }
