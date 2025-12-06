@@ -109,6 +109,10 @@ class Plugin extends PluginBase
     public function registerPermissions() 
     {
         return [
+            'acorn.location.manage_locations' => [
+                'label' => 'acorn.location::lang.permissions.manage_locations',
+                'tab'   => 'acorn.location::lang.plugin.name'
+            ],
             'acorn.location.location_create' => [
                 'tab' => 'acorn.location::lang.plugin.name',
                 'label' => 'acorn.location::lang.permissions.location_create'
@@ -116,6 +120,14 @@ class Plugin extends PluginBase
             'acorn.location.location_delete' => [
                 'tab' => 'acorn.location::lang.plugin.name',
                 'label' => 'acorn.location::lang.permissions.location_delete'
+            ],
+            'acorn.location.locationtype_create' => [
+                'tab' => 'acorn.location::lang.plugin.name',
+                'label' => 'acorn.location::lang.permissions.locationtype_create'
+            ],
+            'acorn.location.locationtype_delete' => [
+                'tab' => 'acorn.location::lang.plugin.name',
+                'label' => 'acorn.location::lang.permissions.locationtype_delete'
             ],
 
             'acorn.location.area_create' => [
