@@ -7,7 +7,9 @@ fields:
         label: acorn.location::lang.models.general.name
         type: text
         searchable: true
-    _qrcode:
-        type: partial
-        context: update
-        path: ~/modules/acorn/partials/_qrcode
+tertiaryTabs:
+    fields:
+        _qrcode:
+            type: partial
+            context: update
+            path: ~/modules/acorn/partials/_qrcode

@@ -13,6 +13,12 @@ columns:
         label: acorn.location::lang.models.general.name
         type: text
         searchable: true
+    translations:
+        label: acorn::lang.models.general.translations
+        type: partial
+        searchable: false
+        sortable: false
+        path: translations
     created_at:
         label: acorn.location::lang.models.general.created_at
         type: datetime

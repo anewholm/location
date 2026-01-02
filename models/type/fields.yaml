@@ -17,8 +17,10 @@ fields:
         placeholder: backend::lang.form.select
         span: auto
 
-    _qrcode:
-        type: partial
-        context: update
-        span: auto
-        path: ~/modules/acorn/partials/_qrcode
+tertiaryTabs:
+    fields:
+        _qrcode:
+            type: partial
+            context: update
+            span: auto
+            path: ~/modules/acorn/partials/_qrcode

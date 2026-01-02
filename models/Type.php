@@ -14,6 +14,10 @@ class Type extends Model
      */
     public $table = 'acorn_location_types';
 
+    public $translatable = [
+        'name',
+    ];
+
     /**
      * @var array Guarded fields
      */

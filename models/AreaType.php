@@ -17,6 +17,10 @@ class AreaType extends Model
      */
     public $table = 'acorn_location_area_types';
 
+    public $translatable = [
+        'name',
+    ];
+
     /**
      * @var array Guarded fields
      */

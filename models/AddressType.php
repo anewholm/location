@@ -17,6 +17,10 @@ class AddressType extends Model
      */
     public $table = 'acorn_location_address_types';
 
+    public $translatable = [
+        'name',
+    ];
+
     /**
      * @var array Guarded fields
      */

@@ -30,11 +30,13 @@ fields:
         span: right
         setting: Acorn\Location\Models\Settings::gps
 
-    # _auto_location:
-    #     label: acorn.location::lang.models.address.auto_location
-    #     type: checkbox
-    _qrcode:
-        type: partial
-        context: update
-        path: ~/modules/acorn/partials/_qrcode
+tertiaryTabs:
+    fields:
+        # _auto_location:
+        #     label: acorn.location::lang.models.address.auto_location
+        #     type: checkbox
+        _qrcode:
+            type: partial
+            context: update
+            path: ~/modules/acorn/partials/_qrcode
 

@@ -104,7 +104,9 @@ fields:
             mode: crop
             extension: auto
         span: auto
-    _qrcode:
-        type: partial
-        context: update
-        path: ~/modules/acorn/partials/_qrcode
+tertiaryTabs:
+    fields:
+        _qrcode:
+            type: partial
+            context: update
+            path: ~/modules/acorn/partials/_qrcode

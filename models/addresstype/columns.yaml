@@ -15,6 +15,13 @@ columns:
         type: text
         searchable: true
 
+    translations:
+        label: acorn::lang.models.general.translations
+        type: partial
+        searchable: false
+        sortable: false
+        path: translations
+
     server:
         label: acorn::lang.models.server.label
         relation: server

@@ -1,7 +1,7 @@
 <?php namespace Acorn\Location\Controllers;
 
 use BackendMenu;
-use Backend\Classes\Controller;
+use Acorn\Controller;
 
 class Types extends Controller
 {
